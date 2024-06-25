@@ -965,4 +965,4 @@ def main():
 						print(f' Tất Cả Các Nhiệm Vụ Đã Hết, Vui Lòng Chờ {i} Giây ', end = '\r');sleep(1); print('                                                        ', end = '\r')
 	
 if __name__ == '__main__':
-	main()l
+	main()
