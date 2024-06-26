@@ -102,6 +102,12 @@ Write.Print('[⟨⟩]➩ Nhập Số [3] TDS FACEBOOK FULL JOD [VIP] \n',Colors.
 Write.Print('[⟨⟩]➩ Nhập Số [4] TDS INSTAGRAM MAX SPEED  [MỚI] \n',Colors.white,interval=0.0001)
 
 Write.Print('╔═════════════════════╗ \n',Colors.yellow,interval=0.0001,end='\r')
+Write.Print('║TOOL FACEBOOK ║ \n',Colors.yellow,interval=0.0001,end='\r')
+Write.Print('╚═════════════════════╝ \n',Colors.yellow,interval=0.0001,end='\r')
+Write.Print('[⟨⟩]➩ Nhập Số [0.1] TOOL BUFF VIEW FB BẰNG PRO5 [ỔN ĐỊNH]\n',Colors.white,interval=0.0001)
+
+
+Write.Print('╔═════════════════════╗ \n',Colors.yellow,interval=0.0001,end='\r')
 Write.Print('║ TOOL GOLIkE  ║ \n',Colors.yellow,interval=0.0001,end='\r')
 Write.Print('╚═════════════════════╝ \n',Colors.yellow,interval=0.0001,end='\r')
 Write.Print('[⟨⟩]➩ Nhập Số [5] TOOL GOLKIE TIKTOK [VIP] \n',Colors.white,interval=0.0001)
@@ -119,6 +125,9 @@ elif chon == '4':
     exec(requests.get('https://raw.githubusercontent.com/Nhatp1/Nhatp1/main/tdsig.py').text)
 elif chon == '5':
 	exec(requests.get('https://raw.githubusercontent.com/Nhatp1/Nhatp1/main/golike.py').text)
+elif chon == '0.1':
+	exec(requests.get('https://raw.githubusercontent.com/Nhatp1/Nhatp1/main/viewfb.py').text)
+
 else:
     print("Sai Lựa Chọn")
     exit()
