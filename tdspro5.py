@@ -36,7 +36,7 @@ edit1 = trang+"["+do+"PCM"+trang+"]"+trang+" => "+luc
 os.system("cls" if os.name == "nt" else "clear")
 def banner():
   banner = '''
-  \033[1;36madmin NHẬT TOOL
+  \033[1;36madmin NHẬT TOOL LỎ
        
      \033[1;33mTOOL TRAO ĐỔI SUB PRO5 ĐA LUỒNG FULL JOB
   '''
