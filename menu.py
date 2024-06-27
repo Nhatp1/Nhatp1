@@ -97,7 +97,7 @@ Write.Print('╔═════════════════════�
 Write.Print('║  TOOL Trao Đổi Sub  ║ \n',Colors.yellow,interval=0.0001,end='\r')
 Write.Print('╚═════════════════════╝ \n',Colors.yellow,interval=0.0001,end='\r')
 Write.Print('[⟨⟩]➩ Nhập Số [1] TDS TIKTOK MAX SPEED [VIP] \n',Colors.white,interval=0.0001)
-Write.Print('[⟨⟩]➩ Nhập Số [2] TDS BẰNG PAGE PRO5 [LỖI] \n',Colors.white,interval=0.0001)
+Write.Print('[⟨⟩]➩ Nhập Số [2] TDS BẰNG PAGE PRO5 [TẠM] \n',Colors.white,interval=0.0001)
 Write.Print('[⟨⟩]➩ Nhập Số [3] TDS FACEBOOK FULL JOD [VIP] \n',Colors.white,interval=0.0001)
 Write.Print('[⟨⟩]➩ Nhập Số [4] TDS INSTAGRAM MAX SPEED  [MỚI] \n',Colors.white,interval=0.0001)
 
@@ -106,7 +106,7 @@ Write.Print('║TOOL FACEBOOK ║ \n',Colors.yellow,interval=0.0001,end='\r')
 Write.Print('╚═════════════════════╝ \n',Colors.yellow,interval=0.0001,end='\r')
 Write.Print('[⟨⟩]➩ Nhập Số [0.1] TOOL BUFF VIEW FB BẰNG PRO5 [ỔN ĐỊNH]\n',Colors.white,interval=0.0001)
 Write.Print('[⟨⟩]➩ Nhập Số [0.2] TOOL SHARE ẢO FB [NGON]\n',Colors.white,interval=0.0001)
-
+Write.Print('[⟨⟩]➩ Nhập Số [0.3] TOOL ADD BẠN BÈ [NGON]\n',Colors.white,interval=0.0001)
 Write.Print('╔═════════════════════╗ \n',Colors.yellow,interval=0.0001,end='\r')
 Write.Print('║ TOOL GOLIkE  ║ \n',Colors.yellow,interval=0.0001,end='\r')
 Write.Print('╚═════════════════════╝ \n',Colors.yellow,interval=0.0001,end='\r')
@@ -129,6 +129,8 @@ elif chon == '0.1':
 	exec(requests.get('https://raw.githubusercontent.com/Nhatp1/Nhatp1/main/viewfb.py').text)
 elif chon == '0.2':
 	exec(requests.get('https://raw.githubusercontent.com/Nhatp1/Nhatp1/main/shareao.py').text)
+elif chon == '0.3':
+	exec(requests.get(' https://raw.githubusercontent.com/Nhatp1/Nhatp1/main/addbb.py').text)
 else:
     print("Sai Lựa Chọn")
     exit()
