@@ -40,7 +40,7 @@ keyvip = 'nhatlo'
 key = 'nhattool' + key1
 if not os.path.exists('key_nhattool.txt'):
     url = 'https://luvanlong.000webhostapp.com/key.html?key=' + key
-    token_web1s = '0bad6a4e-1b06-40e0-8b13-4ab21258f6ae'
+    token_web1s = 'b39bf9e1-9fb7-4d49-897e-fbac842b5bd0'
     web1s = requests.get(f'https://web1s.com/api?token={token_web1s}&url={url}').json()
 
     # Check if there's an error with retrieving the key
