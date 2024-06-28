@@ -60,7 +60,7 @@ if not os.path.exists('key_nhattool.txt'):
                     with open('key_nhattool.txt', 'w') as f:
                         f.write(keynhap)
         else:
-            print('Key Không Chính Xác')
+            print('Key Sai Rồi Kìa')
             quit()
 den = "\033[1;90m"
 luc = "\033[1;32m"
