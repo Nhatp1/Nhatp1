@@ -7,10 +7,6 @@ import time
 import json,requests,time
 from time import strftime
 from pystyle import Colorate, Colors, Write, Add, Center
-__ZALO__ = '0777374145'
-__ADMIN__ = 'An Orin'
-__FACEBOOK__ = 'anorintool'
-__VERSION__ = '1.0'
 __NHV__ = '\033[1;91m[\033[1;92m●\033[1;91m]\033[1;97m ➻❥'  
 def banner():
     print(f''' 
@@ -18,7 +14,6 @@ def banner():
 \033[1;31m────────────────────────────────────────────────────────────
 \033[1;31m[\033[1;37m=.=\033[1;31m] \033[1;37m=> \033[1;33mTOOL SHARE ẢO
 \033[1;31m[\033[1;37m=.=\033[1;31m] \033[1;37m=> \033[1;35mADMIN: \033[1;36m NHẬT TOOL
-\033[1;31m[\033[1;37m=.=\033[1;31m] \033[1;37m=> \033[1;32mBOX SUPPORT: \033[1;37mhttps:https://zalo.me/g/wqhrod471
 \033[1;31m────────────────────────────────────────────────────────────''')
 t=(Colorate.Horizontal(Colors.white_to_black,"- - - - - - - - - - - - - - - - - - - - - - - - -"))
 print(t)
