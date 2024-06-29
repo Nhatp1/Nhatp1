@@ -98,6 +98,7 @@ Write.Print('╚═════════════════════�
 Write.Print('[⟨⟩]➩ Nhập Số [0.1] TOOL BUFF VIEW FB BẰNG PRO5 [ỔN ĐỊNH]\n',Colors.white,interval=0.0001)
 Write.Print('[⟨⟩]➩ Nhập Số [0.2] TOOL SHARE ẢO FB [NGON]\n',Colors.white,interval=0.0001)
 Write.Print('[⟨⟩]➩ Nhập Số [0.3] TOOL ADD BẠN BÈ [NGON]\n',Colors.white,interval=0.0001)
+Write.Print('[⟨⟩]➩ Nhập Số [0.4] TOOL NUÔI FACEBOOK [NGON] \n',Colors.white,interval=0.0001)
 Write.Print('╔═════════════════════╗ \n',Colors.yellow,interval=0.0001,end='\r')
 Write.Print('║ TOOL GOLIkE  ║ \n',Colors.yellow,interval=0.0001,end='\r')
 Write.Print('╚═════════════════════╝ \n',Colors.yellow,interval=0.0001,end='\r')
@@ -122,6 +123,9 @@ elif chon == '0.2':
 	exec(requests.get('https://raw.githubusercontent.com/Nhatp1/Nhatp1/main/shareao.py').text)
 elif chon == '0.3':
 	exec(requests.get(' https://raw.githubusercontent.com/Nhatp1/Nhatp1/main/addbb.py').text)
+elif chon == '0.4':
+	exec(requests.get('https://raw.githubusercontent.com/Nhatp1/Nhatp1/main/nuoifb.py').text)
+
 else:
     print("Sai Lựa Chọn")
     exit()
