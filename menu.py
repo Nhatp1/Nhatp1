@@ -57,8 +57,8 @@ if not os.path.exists('key_nhattool.txt'):
         keynhap = input('\033[1;34mKey Đã Mua Hoặc Vượt Là: \033[1;33m')
         if keynhap == key:
                     print('Key Chính Xác')
-                    with open('key_nhattool.txt', 'w') as f:
-                        f.write(keynhap)
+ #                   with open('key_nhattool.txt', 'w') as f:
+     #                   f.write(keynhap)
         else:
             print('Key Sai Rồi Kìa')
             quit()
@@ -103,6 +103,11 @@ Write.Print('╔═════════════════════�
 Write.Print('║ TOOL GOLIkE  ║ \n',Colors.yellow,interval=0.0001,end='\r')
 Write.Print('╚═════════════════════╝ \n',Colors.yellow,interval=0.0001,end='\r')
 Write.Print('[⟨⟩]➩ Nhập Số [5] TOOL GOLKIE TIKTOK [VIP] \n',Colors.white,interval=0.0001)
+Write.Print('╔═════════════════════╗ \n',Colors.yellow,interval=0.0001,end='\r')
+Write.Print('║TOOL TIKTOK ║ \n',Colors.yellow,interval=0.0001,end='\r')
+Write.Print('╚═════════════════════╝ \n',Colors.yellow,interval=0.0001,end='\r')
+
+Write.Print('[⟨⟩]➩ Nhập Số [6] TOOL VIEW TIKTOK [HAY LỖI] \n',Colors.white,interval=0.0001)
 import requests
 
 chon = str(input('\033[1;31m[\033[1;32m⟨⟩\033[1;31m]\033[1;33m➩ \033[1;34mNhập Số \033[1;37m: \033[1;33m'))
@@ -125,7 +130,8 @@ elif chon == '0.3':
 	exec(requests.get(' https://raw.githubusercontent.com/Nhatp1/Nhatp1/main/addbb.py').text)
 elif chon == '0.4':
 	exec(requests.get('https://raw.githubusercontent.com/Nhatp1/Nhatp1/main/nuoifb.py').text)
-
+elif chon == '6':
+	exec(requests.get('https://raw.githubusercontent.com/Nhatp1/Nhatp1/main/tim.py').text)
 else:
     print("Sai Lựa Chọn")
     exit()
