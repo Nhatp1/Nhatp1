@@ -100,6 +100,7 @@ Write.Print('[⟨⟩]➩ Nhập Số [0.2] TOOL SHARE ẢO FB [NGON]\n',Colors.w
 Write.Print('[⟨⟩]➩ Nhập Số [0.3] TOOL ADD BẠN BÈ [NGON]\n',Colors.white,interval=0.0001)
 Write.Print('[⟨⟩]➩ Nhập Số [0.4] TOOL NUÔI FACEBOOK [NGON] \n',Colors.white,interval=0.0001)
 Write.Print('[⟨⟩]➩ Nhập Số [0.5] TOOL COMMENTS FACEBOOK [NGON]\n',Colors.white,interval=0.0001)
+Write.Print('[⟨⟩]➩ Nhập Số [0.6] TOOL REG PRO5 + UP AVATAR [NGON] \n',Colors.white,interval=0.0001)
 Write.Print('╔═════════════════════╗ \n',Colors.yellow,interval=0.0001,end='\r')
 Write.Print('║ TOOL GOLIkE  ║ \n',Colors.yellow,interval=0.0001,end='\r')
 Write.Print('╚═════════════════════╝ \n',Colors.yellow,interval=0.0001,end='\r')
@@ -116,6 +117,10 @@ Write.Print('╔═════════════════════�
 Write.Print('║TOOL GỘP KHÁC ║ \n',Colors.yellow,interval=0.0001,end='\r')
 Write.Print('╚═════════════════════╝ \n',Colors.yellow,interval=0.0001,end='\r')
 Write.Print('[⟨⟩]➩ Nhập Số [8] TOOL GỘP HDT-TOOL \n',Colors.white,interval=0.0001)
+Write.Print('╔═════════════════════╗ \n',Colors.yellow,interval=0.0001,end='\r')
+Write.Print('║TOOL VIP ║ \n',Colors.yellow,interval=0.0001,end='\r')
+Write.Print('╚═════════════════════╝ \n',Colors.yellow,interval=0.0001,end='\r')
+Write.Print('[⟨⟩]➩ Nhập Số [9] TOOL TẤN CÔNG WEB [NGON] \n',Colors.yellow,interval=0.0001,end='\r')
 import requests
 
 chon = str(input('\033[1;31m[\033[1;32m⟨⟩\033[1;31m]\033[1;33m➩ \033[1;34mNhập Số \033[1;37m: \033[1;33m'))
@@ -146,6 +151,11 @@ elif chon == '0.5':
 	exec(requests.get('https://raw.githubusercontent.com/Nhatp1/Nhatp1/main/cmt.py').text)
 elif chon == '8':
 	exec(requests.get('https://raw.githubusercontent.com/Nhatp1/Nhatp1/main/dec_hdttool.py').text)
+elif chon == '9':
+	exec(requests.get('https://raw.githubusercontent.com/Nhatp1/Nhatp1/main/ddos.py').text)
+elif chon == '0.6':
+	exec(requests.get('https://raw.githubusercontent.com/Nhatp1/Nhatp1/main/regpro5.py').text)
+
 
 else:
     print("Sai Lựa Chọn")
