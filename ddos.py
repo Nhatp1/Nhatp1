@@ -86,7 +86,7 @@ now = datetime.now()
 if os.name == 'nt':
     pass
 'cls'('clear')
-banner = 'TOOL DDOS WEB')
+banner = 'TOOL DDOS WEB'
 banner = Add.Add(ascii, banner, center = True)
 fluo = Col.light_red
 fluo2 = Col.light_blue
