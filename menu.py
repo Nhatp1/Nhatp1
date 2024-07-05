@@ -55,7 +55,7 @@ if not os.path.exists('key_nhattool.txt'):
 
         # Prompt the user to enter the purchased or obtained key
         keynhap = input('\033[1;34mKey Đã Mua Hoặc Vượt Là: \033[1;33m')
-        if keynhap == key:
+        if keynhap == keyvip:
                     print('Key Chính Xác')
  #                   with open('key_nhattool.txt', 'w') as f:
      #                   f.write(keynhap)
