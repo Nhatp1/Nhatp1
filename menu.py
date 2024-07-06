@@ -38,24 +38,24 @@ ngay = int(strftime('%d'))
 key1 = str(ngay * 5868756 + 74356421)
 keyvip = 'nhatlo'
 key = 'nhattool' + key1
-if not os.path.exists('key_nhattool.txt'):
-    url = 'https://luvanlong.000webhostapp.com/key.html?key=' + key
-    token_web1s = 'b39bf9e1-9fb7-4d49-897e-fbac842b5bd0'
-    web1s = requests.get(f'https://web1s.com/api?token={token_web1s}&url={url}').json()
+#if not os.path.exists('key_nhattool.txt'):
+url = 'https://taoweb1s.net/key-tool?key=' + key
+token_money = '432c9b236e4e2a7ca16f55b2029fe3461c78be79bb267c98e4f80f49303dbab3'
+money = requests.get(f'https://yeumoney.com/QL_api.php?token={token_money}&format=json&url={url}').json()
 
     # Check if there's an error with retrieving the key
-    if web1s['status'] == "error":
-        print(web1s['message'])
+if money['status'] == "error":
+        print(money['message'])
         quit()
-    else:
-        link_key = web1s['shortenedUrl']
+else:
+        link_key = money['shortenedUrl']
         print("\033[1;33mTool Free Nên Sẽ Đổi Key Mỗi Ngày\033[1;33m")
         print("\033[1;35m ============================================  ")
         print('\033[1;36mVượt Link Để Lấy Key Free: \033[1;37m' + link_key)
 
         # Prompt the user to enter the purchased or obtained key
         keynhap = input('\033[1;34mKey Đã Mua Hoặc Vượt Là: \033[1;33m')
-        if keynhap == keyvip:
+        if keynhap == key:
                     print('Key Chính Xác')
  #                   with open('key_nhattool.txt', 'w') as f:
      #                   f.write(keynhap)
