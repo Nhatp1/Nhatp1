@@ -92,7 +92,7 @@ def main():
 
     ngay = int(strftime('%d'))
     key = "NhatTool" + str(ngay * 2593885817 + 4610273)
-    key = "nhatkeyvip"
+    key = "nhattool68"
 
     saved_key = load_key_from_file()
 
@@ -110,6 +110,12 @@ def main():
 
         nhap_key = input(f'''
    \x1b[38;5;207m╔══\x1b[38;5;226m══\x1b[38;5;99m══\x1b[38;5;46m══\x1b[38;5;51m══\x1b[38;5;208m══\x1b[38;5;51m══\x1b[38;5;46m══\x1b[38;5;99m══\x1b[38;5;207m══\x1b[38;5;51m══\x1b[38;5;226m══\x1b[38;5;99m══\x1b[38;5;46m══\x1b[38;5;51m══\x1b[38;5;208m══\x1b[38;5;51m══\x1b[38;5;46m══\x1b[38;5;99m══\x1b[38;5;207m══\x1b[38;5;51m══\x1b[38;5;226m══\x1b[38;5;99m══\x1b[38;5;46m══\x1b[38;5;51m══\x1b[38;5;208m══\x1b[38;5;51m══\x1b[38;5;46m══\x1b[38;5;99m══\x1b[38;5;207m══\x1b[38;5;51m══\x1b[38;5;46m═╗
+  \033[1;36m ███╗   ██╗██╗  ██╗ █████╗ ████████╗    ████████╗ ██████╗  ██████╗ ██╗     
+  \033[1;36m ████╗  ██║██║  ██║██╔══██╗╚══██╔══╝    ╚══██╔══╝██╔═══██╗██╔═══██╗██║     
+  \033[1;36m ██╔██╗ ██║███████║███████║   ██║          ██║   ██║   ██║██║   ██║██║     
+  \033[1;36m ██║╚██╗██║██╔══██║██╔══██║   ██║          ██║   ██║   ██║██║   ██║██║     
+  \033[1;36m ██║ ╚████║██║  ██║██║  ██║   ██║          ██║   ╚██████╔╝╚██████╔╝███████╗
+  \033[1;36m ╚═╝  ╚═══╝╚═╝  ╚═╝╚═╝  ╚═╝   ╚═╝          ╚═╝    ╚═════╝  ╚═════╝ ╚══════╝
         \x1b[38;5;226mĐÂY LÀ TOOL FREE NÊN KEY SẼ THAY ĐỔI MỖI NGÀY !!
         \x1b[38;5;207mHôm Nay Ngày : \x1b[38;5;46m{thu}/{ngay_hom_nay}/{thang_nay}/{nam_}
         \x1b[38;5;207mGiờ Hiện Tại : \x1b[38;5;46m{gio_hien_tai}
@@ -192,6 +198,18 @@ print(f"{hong}│ {vang} 8.2 {red} │{trang} KẾT BẠN FACEBOOK    {red}     
 print(f"{hong}├─────┼────────────────────────────────────┼─────────┼─────────┤")
 print(f"{hong}│ {vang} 8.3 {red} │{trang} NUÔI FACEBOOK   {red}            │{luc} ONLINE {red} │ {lam} [3.0] {red} │")
 print(f"{hong}├─────┼────────────────────────────────────┼─────────┼─────────┤")
+print(f"{hong}│ {vang} 8.4 {red} │{trang} REG PRO5  {red}            │{red} OFFLINE {red} │ {lam} [1.0] {red} │")
+print(f"{hong}├─────┼────────────────────────────────────┼─────────┼─────────┤")
+print(f"{hong}│ {vang} 8.5 {red} │{trang} COMMENT FACEBOOK    {red}            │{luc} ONLINE {red} │ {lam} [3.0] {red} │")
+print(f"{hong}├─────┼────────────────────────────────────┼─────────┼─────────┤")
+print(f"{hong}│ {vang} 9 {red} │{hong} TẤN CÔNG WEBSITE   {red}            │{red} OFFLINE {red} │ {lam} [3.0] {red} │")
+print(f"{hong}├─────┼────────────────────────────────────┼─────────┼─────────┤")
+print(f"{hong}│ {vang} 10 {red} │{lamd} AUTO TAP HAMTER   {red}            │{luc} ONLINE {red} │ {lam} [3.0] {red} │")
+print(f"{hong}├─────┼────────────────────────────────────┼─────────┼─────────┤")
+print(f"{hong} │                       TOOL GỘP CÁC YOUTUBER              │      ")
+print(f"{hong}┌─────┬────────────────────────────────────┬─────────┬─────────┐")
+print(f"{hong}│ {vang} 1000 {red} │{lamd} TOOL HDT-TOOL   {red}            │{luc} ONLINE {red} │ {lam} [2.0] {red} │")
+print(f"{hong}├─────┼────────────────────────────────────┼─────────┼─────────┤")
 import requests
 
 chon = str(input('\033[1;31m[\033[1;32m⟨⟩\033[1;31m]\033[1;33m➩ \033[1;34mNhập Số \033[1;37m: \033[1;33m'))
@@ -216,20 +234,18 @@ elif chon == '8.3':
 	exec(requests.get('https://raw.githubusercontent.com/Nhatp1/Nhatp1/main/nuoifb.py').text)
 elif chon == '6':
 	exec(requests.get('https://raw.githubusercontent.com/Nhatp1/Nhatp1/main/tim.py').text)
-elif chon == '0.5':
+elif chon == '8.5':
 	exec(requests.get('https://raw.githubusercontent.com/Nhatp1/Nhatp1/main/cmt.py').text)
 elif chon == '1000':
 	exec(requests.get('https://raw.githubusercontent.com/Nhatp1/Nhatp1/main/dec_hdttool.py').text)
 elif chon == '9':
-	exec(requests.get('https://raw.githubusercontent.com/Nhatp1/Nhatp1/main/ddos.py').text)
-elif chon == '0.6':
-	exec(requests.get('https://raw.githubusercontent.com/Nhatp1/Nhatp1/main/regpro5.py').text)
+	exec(requests.get('').text)
+elif chon == '8.4':
+	exec(requests.get('').text)
 elif chon == '10':
 	exec(requests.get('https://raw.githubusercontent.com/Nhatp1/Nhatp1/main/hamter.py').text)
-elif chon == '0.7':
-	exec(requests.get('').text)
 elif chon == '7':
-	exec(requests.get('https://raw.githubusercontent.com/Nhatp1/Nhatp1/main/ttcig.py').text)
+	exec(requests.get('').text)
 else:
     print("Sai Lựa Chọn")
     exit()
