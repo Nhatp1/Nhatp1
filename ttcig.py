@@ -1,354 +1,383 @@
-
-import json
-import requests, os, sys, re, json
+#Tool Được Decode/Crack By HuyKaiser Và Dc Lưu Bởi HuyKaiser - HwiDev
+#Time: 17/05/2024 - 09:58:19.305914
+import requests,json
+import uuid
+import os
 from time import sleep
 from datetime import datetime
-import random
-import time
-import os
-dem = 0
-list=''
+from datetime import date
+import os, sys, requests
+from time import sleep
+from pystyle import *
+from time import strftime
+from datetime import datetime, timedelta
+now=datetime.now()
+os.system("cls" if os.name == "nt" else "clear")
+sleep(0)
+banner="""
+  \x1b[38;5;207m╔══\x1b[38;5;226m══\x1b[38;5;99m══\x1b[38;5;46m══\x1b[38;5;51m══\x1b[38;5;208m══\x1b[38;5;51m══\x1b[38;5;46m══\x1b[38;5;99m══\x1b[38;5;207m══\x1b[38;5;51m══\x1b[38;5;226m══\x1b[38;5;99m══\x1b[38;5;46m══\x1b[38;5;51m══\x1b[38;5;208m══\x1b[38;5;51m══\x1b[38;5;46m══\x1b[38;5;99m══\x1b[38;5;207m══\x1b[38;5;51m══\x1b[38;5;226m══\x1b[38;5;99m══\x1b[38;5;46m══\x1b[38;5;51m══\x1b[38;5;208m══\x1b[38;5;51m══\x1b[38;5;46m══\x1b[38;5;99m══\x1b[38;5;207m══\x1b[38;5;51m══\x1b[38;5;46m═╗
+  \033[1;36m ███╗   ██╗██╗  ██╗ █████╗ ████████╗    ████████╗ ██████╗  ██████╗ ██╗     
+  \033[1;36m ████╗  ██║██║  ██║██╔══██╗╚══██╔══╝    ╚══██╔══╝██╔═══██╗██╔═══██╗██║     
+  \033[1;36m ██╔██╗ ██║███████║███████║   ██║          ██║   ██║   ██║██║   ██║██║     
+  \033[1;36m ██║╚██╗██║██╔══██║██╔══██║   ██║          ██║   ██║   ██║██║   ██║██║     
+  \033[1;36m ██║ ╚████║██║  ██║██║  ██║   ██║          ██║   ╚██████╔╝╚██████╔╝███████╗
+  \033[1;36m ╚═╝  ╚═══╝╚═╝  ╚═╝╚═╝  ╚═╝   ╚═╝          ╚═╝    ╚═════╝  ╚═════╝ ╚══════╝
+        \x1b[38;5;226m CHÚC MỌI NGƯỜI MỘT NGÀY VUI VẼ!!
+        \x1b[38;5;207mBOX ZALO : \x1b[38;5;46mhttps://zalo.me/g/ozebne540
+        \x1b[38;5;207m ADMIN : \x1b[38;5;46m NHẬT TOOL
+        \x1b[38;5;207m MUA KEY VIP LIÊN HỆ ZALO: 0386358592 (500đ/1day) \x1b[38;5;46m
+        \x1b[38;5;207m BOT SPAM SMS: https://t.me/sharebotvip \x1b[38;5;207m
+   \x1b[38;5;207m╚══\x1b[38;5;226m══\x1b[38;5;99m══\x1b[38;5;46m══\x1b[38;5;51m══\x1b[38;5;208m══\x1b[38;5;51m══\x1b[38;5;46m══\x1b[38;5;99m══\x1b[38;5;207m══\x1b[38;5;51m══\x1b[38;5;226m══\x1b[38;5;99m══\x1b[38;5;46m══\x1b[38;5;51m══\x1b[38;5;208m══\x1b[38;5;51m══\x1b[38;5;46m══\x1b[38;5;99m══\x1b[38;5;207m══\x1b[38;5;51m══\x1b[38;5;226m══\x1b[38;5;99m══\x1b[38;5;46m══\x1b[38;5;51m══\x1b[38;5;208m══\x1b[38;5;51m══\x1b[38;5;46m══\x1b[38;5;99m══\x1b[38;5;207m══\x1b[38;5;51m══\x1b[38;5;46m═╝
 
-banner()
-list_cookie = []
-def coin(ckvp):
-	h_xu = {'user-agent':'Mozilla/5.0 (Linux; Android 11; Live 4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.28 Mobile Safari/537.36','cookie':ckvp}
-	x = requests.post('https://vipig.net/home.php', headers=h_xu).text
-	xu = x.split('"soduchinh">')[1].split('<')[0]
-	return xu
+"""
+for X in banner:
+  sys.stdout.write(X)
+  sys.stdout.flush() 
+  sleep(0.00)
+listuid = []
+listcookie = []
+class ApiPro5:
+    def __init__(self, cookies,fb_dtsg,jazoet,id_page) -> None:
+        self.headers = {
+                'authority': 'www.facebook.com',
+                'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+                'accept-language': 'vi',
+                'cookie': cookies,
+                'sec-ch-prefers-color-scheme': 'light',
+                'sec-ch-ua': '"Chromium";v="106", "Google Chrome";v="106", "Not;A=Brand";v="99"',
+                'sec-ch-ua-mobile': '?0',
+                'sec-ch-ua-platform': '"Windows"',
+                'sec-fetch-dest': 'document',
+                'sec-fetch-mode': 'navigate',
+                'sec-fetch-site': 'none',
+                'sec-fetch-user': '?1',
+                'upgrade-insecure-requests': '1',
+                'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36',
+                'viewport-width': '1366',
+            }
+        url_profile = requests.get('https://www.facebook.com/me', headers=self.headers).url
+        profile = requests.get(url_profile, headers=self.headers).text
+        self.fb_dtsg = fb_dtsg
+        self.jazoet = jazoet
+        self.user_id = id_page
+    def join(self, group_id):
+        data = {
+            'fb_dtsg': self.fb_dtsg,
+            'jazoest': self.jazoet,
+            'fb_api_caller_class': 'RelayModern',
+            'fb_api_req_friendly_name': 'GroupCometJoinForumMutation',
+            'variables': '{"feedType":"DISCUSSION","groupID":"'+group_id+'","imageMediaType":"image/x-auto","input":{"action_source":"GROUPS_ENGAGE_TAB","attribution_id_v2":"GroupsCometCrossGroupFeedRoot.react,comet.groups.feed,tap_tabbar,1667116100089,433821,2361831622,","group_id":"'+group_id+'","group_share_tracking_params":null,"actor_id":"'+self.user_id+'","client_mutation_id":"2"},"inviteShortLinkKey":null,"isChainingRecommendationUnit":false,"isEntityMenu":false,"scale":1,"source":"GROUPS_ENGAGE_TAB","renderLocation":"group_mall","__relay_internal__pv__GlobalPanelEnabledrelayprovider":false,"__relay_internal__pv__GroupsCometEntityMenuEmbeddedrelayprovider":true}',
+            'server_timestamps': 'true',
+            'doc_id': '5915153095183264',
+        }
 
-def cookie(token):
-	ck = requests.post('https://vipig.net/logintoken.php',headers={'Content-type':'application/x-www-form-urlencoded',},data={'access_token':token})
-	cookie = 'PHPSESSID='+(ck.cookies)['PHPSESSID']
-	return cookie
-def get_nv(type, ckvp):
-	headers={'content-type':'text/html; charset=UTF-8','accept':'application/json, text/javascript, */*; q=0.01','accept-language':'vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5','referer':'https://vipig.net/kiemtien/','x-requested-with':'XMLHttpRequest','sec-ch-ua-mobile':'?1','user-agent':'Mozilla/5.0 (Linux; Android 11; vivo 1904) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Mobile Safari/537.36','sec-ch-ua-platform':'"Android"','sec-fetch-site':'same-origin','sec-fetch-mode':'cors','sec-fetch-dest':'empty','cookie':ckvp}
-	a = requests.post(f'https://vipig.net/kiemtien{type}/getpost.php', headers=headers).json()
-	return a
-def nhan_tien(list, ckvp, type):
-	data_xu='id='+str(list)
-	data_nhan=str(len(data_xu))
-	headers={'content-length':data_nhan,'sec-ch-ua':'"Chromium";v="106", "Google Chrome";v="106", "Not;A=Brand";v="99"','content-type':'application/x-www-form-urlencoded; charset=UTF-8','accept':'*/*','user-agent':'Mozilla/5.0 (Linux; Android 11; vivo 1904) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Mobile Safari/537.36','sec-ch-ua-mobile':'?1','x-requested-with':'XMLHttpRequest','sec-fetch-site':'same-origin','origin':'https://vipig.net','sec-ch-ua-platform':'"Android"','sec-fetch-mode':'cors','sec-fetch-dest':'empty','referer':'https://vipig.net/kiemtien'+type+'/','accept-language':'vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5','cookie':ckvp}
-	a = requests.post(f'https://vipig.net/kiemtien{type}/nhantien.php',headers=headers,data=data_xu).text
-	return a
-def nhan_sub(list, ckvp):
-	data_xu='id='+str(list[0:len(list)-1])
-	data_nhan=str(len(data_xu))
-	headers={'content-length':data_nhan,'sec-ch-ua':'"Chromium";v="106", "Google Chrome";v="106", "Not;A=Brand";v="99"','content-type':'application/x-www-form-urlencoded; charset=UTF-8','accept':'*/*','user-agent':'Mozilla/5.0 (Linux; Android 11; vivo 1904) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Mobile Safari/537.36','sec-ch-ua-mobile':'?1','x-requested-with':'XMLHttpRequest','sec-fetch-site':'same-origin','origin':'https://vipig.net','sec-ch-ua-platform':'"Android"','sec-fetch-mode':'cors','sec-fetch-dest':'empty','referer':'https://vipig.net/kiemtien/subcheo','accept-language':'vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5','cookie':ckvp}
-	a = requests.post('https://vipig.net/kiemtien/subcheo/nhantien2.php',headers=headers,data=data_xu).json()
-	return a
+        response = requests.post('https://www.facebook.com/api/graphql/', headers=self.headers, data=data).text
+        return response
+    def reaction(self, id_post, reaction):
+        try:
+            url = requests.get('https://www.facebook.com/'+id_post, headers=self.headers).url
+            home = requests.get(url, headers=self.headers).text
+            feedback_id = home.split('{"__typename":"CommentComposerLiveTypingBroadcastPlugin","feedback_id":"')[1].split('","')[0]
+            data = {
+                'fb_dtsg': self.fb_dtsg,
+                'jazoest': self.jazoet,
+                'fb_api_caller_class': 'RelayModern',
+                'fb_api_req_friendly_name': 'CometUFIFeedbackReactMutation',
+                'variables': '{"input":{"attribution_id_v2":"ProfileCometTimelineListViewRoot.react,comet.profile.timeline.list,via_cold_start,1667106623951,429237,190055527696468,","feedback_id":"'+feedback_id+'","feedback_reaction_id":"'+reaction+'","feedback_source":"PROFILE","is_tracking_encrypted":true,"tracking":["AZXg8_yM_zhwrTY7oSTw1K93G-sycXrSreRnRk66aBJ9mWkbSuyIgNqL0zHEY_XgxepV1XWYkuv2C5PuM14WXUB9NGsSO8pPe8qDZbqCw5FLQlsGTnh5w9IyC_JmDiRKOVh4gWEJKaTdTOYlGT7k5vUcSrvUk7lJ-DXs3YZsw994NV2tRrv_zq1SuYfVKqDboaAFSD0a9FKPiFbJLSfhJbi6ti2CaCYLBWc_UgRsK1iRcLTZQhV3QLYfYOLxcKw4s2b1GeSr-JWpxu1acVX_G8d_lGbvkYimd3_kdh1waZzVW333356_JAEiUMU_nmg7gd7RxDv72EkiAxPM6BA-ClqDcJ_krJ_Cg-qdhGiPa_oFTkGMzSh8VnMaeMPmLh6lULnJwvpJL_4E3PBTHk3tIcMXbSPo05m4q_Xn9ijOuB5-KB5_9ftPLc3RS3C24_7Z2bg4DfhaM4fHYC1sg3oFFsRfPVf-0k27EDJM0HZ5tszMHQ"],"session_id":"'+str(uuid.uuid4())+'","actor_id":"'+self.user_id+'","client_mutation_id":"1"},"useDefaultActor":false,"scale":1}',
+                'server_timestamps': 'true',
+                'doc_id': '5703418209680126',
+            }
 
-def delay(dl):
-  try:
-    for i in range(dl, -1, -1):
-       print('[NHATTOOL]['+str(i)+' Giây]           ',end='\r')
-       sleep(1)
-  except:
-     sleep(dl)
-     print(dl,end='\r')
-     
-	
-def name(cookie):
-	headers={'Host':'www.instagram.com','cache-control':'max-age=0','viewport-width':'980','sec-ch-ua':'"Chromium";v="106", "Google Chrome";v="106", "Not;A=Brand";v="99"','sec-ch-ua-mobile':'?1','sec-ch-ua-platform':'"Android"','upgrade-insecure-requests':'1','user-agent':'Mozilla/5.0 (Linux; Android 11; vivo 1904) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Mobile Safari/537.36','accept':'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9','sec-fetch-site':'same-origin','sec-fetch-mode':'navigate','sec-fetch-user':'?1','sec-fetch-dest':'document','accept-language':'vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5','cookie':cookie}
-	a=requests.get('https://www.instagram.com/', headers=headers).text
-	try:
-		user = a.split('username')[1].split('\\"')[2]
-		id = cookie.split('ds_user_id=')[1].split(';')[0]
-		return user, id
-	except:
-		return 'die','die'
-def bongoc(so):
-	a= "────"*so
-	for i in range(len(a)):
-		sys.stdout.write(a[i])
-		sys.stdout.flush()
-		sleep(0.003)
-	print()
+            reaction = requests.post('https://www.facebook.com/api/graphql/', headers=self.headers, data=data).text
+            return {'status': True, 'url': url}
+        except:
+            return {'status': False, 'url': url}
+    def subscribe(self, uid):
+        data = {
+            'fb_dtsg': self.fb_dtsg,
+            'jazoest': self.jazoet,
+            'fb_api_caller_class': 'RelayModern',
+            'fb_api_req_friendly_name': 'CometUserFollowMutation',
+            'variables': '{"input":{"attribution_id_v2":"ProfileCometTimelineListViewRoot.react,comet.profile.timeline.list,via_cold_start,1667114418950,431532,190055527696468,","subscribe_location":"PROFILE","subscribee_id":"'+uid+'","actor_id":"'+self.user_id+'","client_mutation_id":"1"},"scale":1}',
+            'server_timestamps': 'true',
+            'doc_id': '5032256523527306',
+        }
+        subscribe = requests.post('https://www.facebook.com/api/graphql/', headers=self.headers, data=data).text
+        return subscribe
+
     
-	
-def like(id, cookie):
-	headers = {"x-ig-app-id": "1217981644879628","x-asbd-id": "198387","x-instagram-ajax": "c161aac700f","accept": "*/*","content-length": "0","content-type": "application/x-www-form-urlencoded","user-agent": "Mozilla/5.0 (Linux; Android 4.1.1; Nexus 7 Build/JRO03S) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.166 Safari/535.19","x-csrftoken": cookie.split('csrftoken=')[1].split(';')[0],"x-requested-with": "XMLHttpRequest","cookie": cookie}
-	like = requests.post(f'https://www.instagram.com/web/likes/{id}/like/',headers=headers).text
-	if 'ok' not in like:
-		return '1'
-	else:
-		return '2'
-def get_id(link):
-	headers = {"x-ig-app-id": "1217981644879628","x-asbd-id": "198387","x-instagram-ajax": "c161aac700f","accept": "*/*","content-length": "0","content-type": "application/x-www-form-urlencoded","user-agent": "Mozilla/5.0 (Linux; Android 4.1.1; Nexus 7 Build/JRO03S) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.166 Safari/535.19","x-csrftoken": cookie.split('csrftoken=')[1].split(';')[0],"x-requested-with": "XMLHttpRequest","cookie": cookie}
-	try:
-		a = requests.get(link, headers=headers).text
-		id = a.split('media?id=')[1].split('"')[0]
-		return id
-	except:
-		return False
+def get_page(cookie):
+    headers = {
+        'authority': 'mbasic.facebook.com',
+        'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+        'accept-language': 'vi,en;q=0.9,vi-VN;q=0.8,fr-FR;q=0.7,fr;q=0.6,en-US;q=0.5',
+        'cache-control': 'max-age=0',
+        'cookie': cookie,
+        'origin': 'https://www.facebook.com',
+        'referer': 'https://www.facebook.com',
+        'sec-ch-ua': '"Google Chrome";v="107", "Chromium";v="107", "Not=A?Brand";v="24"',
+        'sec-ch-ua-mobile': '?0',
+        'sec-ch-ua-platform': '"Windows"',
+        'sec-fetch-dest': 'document',
+        'sec-fetch-mode': 'navigate',
+        'sec-fetch-site': 'none',
+        'sec-fetch-user': '?1',
+        'upgrade-insecure-requests': '1',
+        'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36',
+    }
+    response = requests.get('https://mbasic.facebook.com/',headers=headers).text
+    fb_dtsg = response.split('<input type="hidden" name="fb_dtsg" value="')[1].split('"')[0]
+    jazoest = response.split('<input type="hidden" name="jazoest" value="')[1].split('"')[0]
+    idpef = requests.post('https://www.facebook.com/api/graphql/', headers=headers, data={'fb_dtsg': fb_dtsg,'jazoest': jazoest,'variables': '{"showUpdatedLaunchpointRedesign":true,"useAdminedPagesForActingAccount":false,"useNewPagesYouManage":true}','doc_id': '5300338636681652'}).json()
+    a = idpef['data']['viewer']['actor']['profile_switcher_eligible_profiles']['nodes']
+    sl = 0
+    for b in a:
+        sl +=1
+        uid = b['profile']['id']
+        name = b['profile']['name']
+        delegate_page_id = b['profile']['delegate_page_id']
+        print (f"\033[1;37mPAGE : {sl} | ID : {uid} | Name : {name} ")
+        print ('\033[1;31m────────────────────────────────────────────────────────────')
+    return a
+    
+def cauhinh(id, cookie,name):
+	url = 'https://tuongtaccheo.com/cauhinh/datnick.php'
+	data = f'iddat%5B%5D={id}&loai=fb'
+	head ={
+	'Host':'tuongtaccheo.com',
+	'accept':'*/*',
+	'user-agent':'Mozilla/5.0 (Linux; Android 8.1.0; CPH1912 Build/O11019) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/107.0.5304.91 Mobile Safari/537.36',
+	'content-type':'application/x-www-form-urlencoded; charset=UTF-8',
+	'cookie':f'{cookie}'
+	}
+	ve = requests.post(url= url, headers= head , data= data).text
+	if ve == '1' :
+		print (f' \033[1;32mCấu Hình \033[1;37m| \033[1;32mID : \033[1;33m{id} \033[1;37m | \033[1;32mName : \033[1;33m{name}')
+	else :
+		print (f' \033[1;31mBạn Chưa Thêm {id} Vào Cấu Hình ')
+		exit()
+def get_job(loai,cookie):
+	head = {
+	'Host':'tuongtaccheo.com',
+	'accept':'application/json, text/javascript, */*; q=0.01',
+	'user-agent':'Mozilla/5.0 (Linux; Android 8.1.0; CPH1912 Build/O11019) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/107.0.5304.91 Mobile Safari/537.36',
+	'cookie':f'{cookie}',
+	'x-requested-with':'XMLHttpRequest'
+	}
+	get_nv = requests.get(f'https://tuongtaccheo.com/kiemtien{loai}getpost.php',headers=head)
+	return get_nv
 
-def follow(id, cookie):
-	headers = {"x-ig-app-id": "1217981644879628","x-asbd-id": "198387","x-instagram-ajax": "c161aac700f","accept": "*/*","content-length": "0","content-type": "application/x-www-form-urlencoded","user-agent": "Mozilla/5.0 (Linux; Android 4.1.1; Nexus 7 Build/JRO03S) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.166 Safari/535.19","x-csrftoken": cookie.split('csrftoken=')[1].split(';')[0],"x-requested-with": "XMLHttpRequest","cookie": cookie}
-	fl = requests.post("https://i.instagram.com/web/friendships/"+id+"/follow/", headers=headers).text
-	if 'ok' not in fl:
-		return '1'
-	else:
-		return fl
-def cmt(msg, id , cookie):
-	headers = {"x-ig-app-id": "1217981644879628","x-asbd-id": "198387","x-instagram-ajax": "c161aac700f","accept": "*/*","content-length": "0","content-type": "application/x-www-form-urlencoded","user-agent": "Mozilla/5.0 (Linux; Android 4.1.1; Nexus 7 Build/JRO03S) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.166 Safari/535.19","x-csrftoken": cookie.split('csrftoken=')[1].split(';')[0],"x-requested-with": "XMLHttpRequest","cookie": cookie}
-	cmt = requests.post(f'https://i.instagram.com/api/v1/web/comments/{id}/add/', headers=headers, data={'comment_text':msg}).json()
-	try:
-		cmt['status'] == 'ok'
-		return 'ok'
-	except:
-		return cmt
+def nhanxu(cookie,loai,data) :
+	url = f'https://tuongtaccheo.com/kiemtien{loai}nhantien.php'
+	
+	head = {
+	'Host':'tuongtaccheo.com',
+	'accept':'*/*',
+	'x-requested-with':'XMLHttpRequest',
+	'user-agent':'Mozilla/5.0 (Linux; Android 8.1.0; CPH1912 Build/O11019) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/107.0.5304.91 Mobile Safari/537.36',
+	'content-type':'application/x-www-form-urlencoded; charset=UTF-8',
+	'referer':f'https://tuongtaccheo.com/kiemtien{loai}',
+	'cookie':f'{cookie}'
+	}
+	
+	nhan = requests.post(url= url, headers= head , data= data)
+	return nhan
+	
+def get_cookie_ttc(token) :
+	data = {
+	'access_token': token
+	}
+	text_1 = requests.post("https://tuongtaccheo.com/logintoken.php", data= data)
+	log = text_1.json()["status"]
+	if log == "success" :
+		xu = text_1.json()["data"]["sodu"]
+		name = text_1.json()["data"]["user"]
+		cookie = text_1.headers["Set-Cookie"]
 		
+	else :
+		print (' \033[1;31m Đăng Nhập Thất Bại ')
+		exit()
+	return cookie
 	
-def cau_hinh(id_ig, ckvp):
-	headers={'content-length':'23','sec-ch-ua':'"Chromium";v="106", "Google Chrome";v="106", "Not;A=Brand";v="99"','accept':'*/*','content-type':'application/x-www-form-urlencoded; charset=UTF-8','x-requested-with':'XMLHttpRequest','sec-ch-ua-mobile':'?1','user-agent':'Mozilla/5.0 (Linux; Android 11; vivo 1904) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Mobile Safari/537.36','sec-ch-ua-platform':'"Android"','sec-fetch-site':'same-origin','sec-fetch-mode':'cors','sec-fetch-dest':'empty','referer':'https://vipig.net/cauhinh/datnick.php','accept-language':'vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5','cookie':ckvp}
-	a=requests.post('https://vipig.net/cauhinh/datnick.php', headers=headers, data={'iddat[]':id_ig}).text
-	return a
+def get_data(cookie):
+    headers = {
+        'authority': 'mbasic.facebook.com',
+        'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+        'accept-language': 'en-US,en;q=0.9',
+        'cache-control': 'max-age=0',
+        'cookie': cookie,
+        'sec-ch-ua': '"Google Chrome";v="107", "Chromium";v="107", "Not=A?Brand";v="24"',
+        'sec-ch-ua-mobile': '?0',
+        'sec-ch-ua-platform': '"Windows"',
+        'sec-fetch-dest': 'document',
+        'sec-fetch-mode': 'navigate',
+        'sec-fetch-site': 'none',
+        'sec-fetch-user': '?1',
+        'upgrade-insecure-requests': '1',
+        'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36',
+    }
 
-while True:
-	token = input('Nhập Access_Token Vipig: ')
-	log = requests.post('https://vipig.net/logintoken.php', headers={'Content-type':'application/x-www-form-urlencoded'}, data={'access_token':token}).json()
-	if log['status'] == 'success':
-		user = log['data']['user']
-		xu = log['data']['sodu']
-		ckvp = cookie(token)
-		print('Đăng Nhập Thành Công')
-		break
-	elif log['status'] == 'fail':
-		print(log['mess'])
-bongoc(14)
-x = 0
-print('[LƯU Ý] Muốn Dừng Thì Nhấn Enter')
-while True:
-	x = x +1
-	cookie = input(f'Nhập Cookie Instagram Thứ {x}: ')
-	if cookie == '' and x > 1:
-		break
-	ten = name(cookie)
-	if ten[0] != 'die':
-		print(f'User Instagram: {ten[0]} ')
-		list_cookie.append(cookie)
-		bongoc(14)
-	else:
-		print('Cookie Instagram Sai ! Vui Lòng Nhập Lại !!! ')
-		x = x-1
-		bongoc(14)
+    response = requests.get('https://mbasic.facebook.com/',headers=headers).text
+    fb_dtsg = response.split('<input type="hidden" name="fb_dtsg" value="')[1].split('"')[0]
+    jazoet = response.split('<input type="hidden" name="jazoest" value="')[1].split('"')[0]
+    return json.dumps({'fb_dtsg':fb_dtsg,'jazoet':jazoet})
 
-
-banner()
-print(f"""Tên Tài Khoản: {user}
-Xu Hiện Tại: {xu}
-Số Cookie: {len(list_cookie)}""")
-bongoc(14)
-print("""Nhập [1] Để Chạy Nhiệm Vụ Like
-Nhập [2] Để Chạy Nhiệm Vụ Follow
-Nhập [3] Để Chạy Nhiệm Vụ Comment
-Có Thể Chọn Nhiều Nhiệm Vụ (Ví Dụ 123)""")
-chon = input ('Nhập Số Để Chạy Nhiệm Vụ: ')
-bongoc(14)
-dl = int(input('Nhập Delay: '))
-print('Sau ____ Nhiệm Vụ Thì Kích Hoạt Chống Block.',end='\r')
-chong_block = int(input('Sau '))
-print(f'Sau {chong_block} Nhiệm Vụ Nghỉ Ngơi ____ Giây       ',end='\r')
-delay_block = int(input(f'Sau {chong_block} Nhiệm Vụ Nghỉ Ngơi '))
-doi_acc = int(input('Sau Bao Nhiêu Nhiệm Vụ Thì Đổi Nick: '))
-#cookie='ig_did=863360F9-5872-4197-814F-ED651E9EFC89; datr=ldwJY8DFHNZ0wRbrOhY0wcu8; fbm_124024574287414=base_domain=.instagram.com; mid=YwnclwALAAER3eKVWMSW8OAKOvjd; ig_nrcb=1; csrftoken=Spdad4MDgZ5TckRrpSHuaginAjuZxIoH; ds_user_id=55148637022; sessionid=55148637022%3AWg6t9CLHOn3Rk7%3A14%3AAYdvZeATWLEPAHSY29SXdGn_JVa3oOmL6ofgaBJyww; rur="EAG\05455148637022\0541694997835:01f799039131b77cc9477720bd02d5583e05a856e5b52eef4a51cbe8ebf56d37a538ef7d"'
+def xu_tt(cookie) :
+	head = {
+	'Host':'tuongtaccheo.com',
+	'user-agent':'Mozilla/5.0 (Linux; Android 8.1.0; CPH1912 Build/O11019) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/107.0.5304.91 Mobile Safari/537.36',
+	'content-type':'application/x-www-form-urlencoded; charset=UTF-8',
+	'cookie':cookie
+	}
+	response = requests.get('https://tuongtaccheo.com/home.php',headers=head).text
+	xu = response.split('<li><a>Số dư: <strong style="color: red;" id="soduchinh">')[1].split('<')[0]
+	return xu
+	
+print('\033[1;34m⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦')
+def chon_job(so,ttt) :
+	if ttt == 3 :
+		ttt -= 3
+	
+	if so == 1 :
+		loai = "/subcheo/"
+	elif so == 2 :
+		loai = "/camxuccheo/"
+	elif so == 3 :
+		loai = "/thamgianhomcheo/"
+	else :
+		type_5 = ['/subcheo/','/camxuccheo/','/thamgianhomcheo/']
+		loai = type_5[ttt]
+	return loai
 
 
+def type_cx(type_1) :
+	if type_1 == "LOVE" :
+		type_2 = '1678524932434102'
+	elif type_1 == "CARE" :
+		type_2 = '613557422527858'
+	elif type_1 == "WOW" :
+		type_2 = '478547315650144'
+	elif type_1 == "HAHA" :
+		type_2 = '115940658764963'
+	elif type_1 == "SAD" :
+		type_2 = '908563459236466'
+	elif type_1 == "ANGRY" :
+		type_2 = '444813342392137'
+	return type_2
+token = input('\033[1;31m[\033[1;37m=.=\033[1;31m] \033[1;37m=> \033[1;32mNhập Access_token TTC : \033[1;33m ')
+cookie_ttc = get_cookie_ttc(token) 
+print('\033[1;34m⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦')
 
-while True:
-	x = 0
-	ngoctool=0
-	if len(list_cookie) == 0:
-		print('Toàn Bộ Cookie Đã Out Vui Lòng Nhập Lại !!')
-		while True:
-			x = x + 1
-			cookie = input(f'Nhập Cookie Instagram Thứ {x}: ')
-			if cookie == '' and x > 1:
-				break
-			ten = name(cookie)
-			if ten[0] != 'die':
-				print(f'User Instagram: {ten[0]} ')
-				list_cookie.append(cookie)
-				bongoc(14)
-			else:
-				print('Cookie Instagram Sai ! Vui Lòng Nhập Lại !!! ')
-				x = x - 1
-				bongoc(14)
-	for i in range(len(list_cookie)):
-		if ngoctool == 2:
-			break
-		loi_like = 0
-		loi_cmt = 0
-		cookie = list_cookie[i]
-		user = name(cookie)
-		id_ig=user[1]
-		if user[0] == 'die':
-			print('Cookie Instagram Die !!!! ')
-			list_cookie.remove(cookie)
-			continue
-		ngoc = cau_hinh(id_ig, ckvp)
-		if ngoc == '1':
-			bongoc(14)
-			print(f'Đang Cấu Hình ID: {id_ig} | User: {user[0]}')
-			bongoc(14)
-		else:
-			print(f'Cấu Hình Thất Bại ID: {id_ig} | User: {user[0]} ')
-			delay(3)
-			list_cookie.remove(cookie)
-			continue
-		ngoctool=0
-		while True:
-			if ngoctool == 1 or ngoctool == 2:
-				break
-			if '1' in chon:
-				get_like = get_nv('', ckvp)
-				if len(get_like) == 0:
-					print('Tạm Thời Hết Nhiệm Vụ Like','     ',end ='\r')
-				if len(get_like) != 0:
-					print(f'Tìm Thấy {len(get_like)} Nhiệm Vụ Like','     ',end ='\r')
-				for x in get_like:
-					link = x['link']
-					uid = x['idpost']
-					id = get_id(link)
-					if id == False:
-						continue
-					lam = like(id, cookie)
-					if lam ==  '1':
-						user = name(cookie)
-						if user[0] == 'die':
-							print('Cookie Instagram Die !!!! ')
-							list_cookie.remove(cookie)
-							ngoctool=2
-							break
-						else:
-							print(f'Tài Khoản {user[0]} Đã Bị Chặn Tương Tác {lam}')
-							list_cookie.remove(cookie)
-							ngoctool=2
-							break
-					elif loi_like >= 4:
-						print(f'Tài Khoản {user[0]} Đã Bị Chặn Tương Tác')
-						list_cookie.remove(cookie)
-						ngoctool=2
-						break
-					elif lam == '2':
-						nhan = nhan_tien(uid, ckvp, '')
-						if 'mess' in nhan:
-							xu=coin(ckvp)
-							dem = dem + 1
-							tg=datetime.now().strftime('%H:%M')
-							print(f'[{dem}] | {tg} | LIKE | {id} | +300 | {xu}')
-							loi_like = 0
-							if dem % chong_block == 0:
-								delay(delay_block)
-							else:
-								delay(dl)
-							if dem % doi_acc == 0:
-									ngoctool=1
-									break
-						else:
-							tg=datetime.now().strftime('%H:%M')
-							print(f'[X] | {tg} | LIKE | {id} | ERROR ')
-							loi_like += 1
-							delay(dl)
-						
-			if ngoctool == 1 or ngoctool == 2:
-				break
-			if '2' in chon:
-				get_sub = get_nv('/subcheo', ckvp)
-				if len(get_sub) == 0:
-					print('Tạm Thời Hết Nhiệm Vụ Follow','     ',end ='\r')
-				if len(get_sub) != 0:
-					print(f'Tìm Thấy {len(get_sub)} Nhiệm Vụ Follow','     ',end ='\r')
-				for x in get_sub:
-					id=x['soID']
-					lam = follow(id, cookie)
-					if lam == '1':
-						if user[0] == 'die':
-							print(f'Cookie Instagram Die !!!!  ')
-							list_cookie.remove(cookie)
-						else:
-							print(f'Tài Khoản {user[0]} Đã Bị Chặn Tương Tác {lam}')
-							list_cookie.remove(cookie)
-						ngoctool=2
-						break
-					data_id = open(f"{id_ig}.txt", "a+")
-					data_id.write(str(id) + ',')
-					dem = dem + 1
-					tg=datetime.now().strftime('%H:%M')
-					print(f'[{dem}] | {tg} | FOLLOW | {id} | SUCCESS')
-					data_id = open(f"{id_ig}.txt", "r")
-					list = data_id.read()
-					dem_sub = len(list.split(','))-1
-					if dem % chong_block == 0:
-						delay(delay_block)
-					else:
-						delay(dl)
-					if dem_sub >= 6:
-						nhan = nhan_sub(list, ckvp)
-						try:
-							xu_them = nhan['sodu']
-							job = xu_them // 600
-							xu=coin(ckvp)
-							print(f'Nhận Thành Công {job} Nhiệm Vụ Follow | +{xu_them} | {xu}')
-						except:
-							print(nhan)
-						os.remove(f"{id_ig}.txt")
-						dem_sub = 0
-					if dem % doi_acc == 0:
-								ngoctool=1
-								break
-			if ngoctool == 1 or ngoctool == 2:
-				break
-			if '3' in chon:
-				get_cmt = get_nv('/cmtcheo', ckvp)
+cookie = input('\033[1;31m[\033[1;37m=.=\033[1;31m] \033[1;37m=> \033[1;32mNhập Cookie Facebook : \033[1;33m')
+print('\033[1;34m⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦')
+#### vào việc
+get_tt_page = get_page(cookie)
+a = int(input('\033[1;31m[\033[1;37m=.=\033[1;31m] \033[1;37m=> \033[1;32mBạn Muốn Chạy Page Thứ Mấy : \033[1;33m'))
+chon = a-1
+dl = int(input('\033[1;31m[\033[1;37m=.=\033[1;31m] \033[1;37m=> \033[1;32mNhập Delay : \033[1;33m '))
+
+id_page = get_tt_page[chon]['profile']['id']
+name = get_tt_page[chon]['profile']['name']
+ck_pro5 = 'sb={}; datr={}; c_user={}; wd={}; xs={}; fr={}; i_user={};'.format(cookie.split('sb=')[1].split(';')[0], cookie.split('datr=')[1].split(';')[0], cookie.split('c_user=')[1].split(';')[0],cookie.split('wd=')[1].split(';')[0], cookie.split('xs=')[1].split(';')[0],cookie.split('fr=')[1].split(';')[0],id_page)
+##chọn job
+print('\033[1;34m⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦')
+print ("\033[1;31m[\033[1;37m=.=\033[1;31m] \033[1;37m=> \033[1;32mNhập 1 Job Follow")
+print ("\033[1;31m[\033[1;37m=.=\033[1;31m] \033[1;37m=> \033[1;32mNhập 2 Job Cảm Xúc")
+print ("\033[1;31m[\033[1;37m=.=\033[1;31m] \033[1;37m=> \033[1;32mNhập 3 Job Group")
+print ("\033[1;31m[\033[1;37m=.=\033[1;31m] \033[1;37m=> \033[1;32mNhập 4 Job Follow + Cảm Xúc + Group ")
+so = int(input('\033[1;31m[\033[1;37m=.=\033[1;31m] \033[1;37m=> \033[1;32mChọn Job : \033[1;33m '))
+print('\033[1;34m⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦')
+os.system("clear")
+get_cookie_ttc(token) 
+print('\033[1;34m⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦')
+cauhinh(id_page, cookie_ttc, name)
+print('\033[1;34m⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦⏦')
+tt = 0
+data = get_data(cookie)
+fb_dtsg = json.loads(data)['fb_dtsg']
+jazoet = json.loads(data)['jazoet']
+fb = ApiPro5(cookies=ck_pro5, fb_dtsg=fb_dtsg, jazoet=jazoet,id_page=id_page)
+ttt = 0
+while True :
+	loai = chon_job(so,ttt) 
+	ttt+= 1
+	print(" Đang Tìm Job ",end="\r")
+	if loai == "/subcheo/" :
+		list_job = get_job(loai,cookie_ttc)
+		b = list_job.text
+		a = list_job.json()
+		if b == "[]" :
+			print(" Hết Job Follow",end="\r")
+		else :
+			for list_job_ in a :
+				id_job = list_job_["idpost"]
 				
-				if len(get_cmt) == 0:
-					print('Tạm Thời Hết Nhiệm Vụ Comment','     ',end ='\r')
-				if len(get_cmt) != 0:
-					print(f'Tìm Thấy {len(get_cmt)} Nhiệm Vụ Comment','     ',end ='\r')
-				for x in get_cmt:
-					link = x['link']
-					uid = x['idpost']
-					msg = random.choice(json.loads(x['nd']))
-					id = get_id(link)
-					if id == False:
-						continue
-					lam = cmt(msg, id, cookie)
-					if lam ==  '1':
-						user = name(cookie)
-						if user[0] == 'die':
-							print('Cookie Instagram Die !!!! ')
-							list_cookie.remove(cookie)
-							ngoctool=2
-							break
-						else:
-							print(f'Tài Khoản {user[0]} Đã Bị Chặn Tương Tác ')
-							list_cookie.remove(cookie)
-							ngoctool=2
-							break
-					elif loi_cmt >= 4:
-						print(f'Tài Khoản {user[0]} Đã Bị Chặn Tương Tác')
-						list_cookie.remove(cookie)
-						ngoctool=2
-						break
-					elif lam == 'ok':
-						nhan = nhan_tien(uid, ckvp, '/cmtcheo')
-						if 'mess' in nhan:
-							xu=coin(ckvp)
-							dem = dem + 1
-							tg=datetime.now().strftime('%H:%M')
-							print(f'[{dem}] | {tg} | COMMENT | {id} | {msg} | +600 | {xu}')
-							loi_cmt = 0
-							if dem % chong_block == 0:
-								delay(delay_block)
-							else:
-								delay(dl)
-							if dem % doi_acc == 0:
-									ngoctool=1
-									break
-						else:
-							tg=datetime.now().strftime('%H:%M')
-							print(f'[X] | {tg} | COMMENT | {id} | ERROR')
-							loi_cmt += 1
-							delay(dl)
-							
+				fb.subscribe(id_job)
+				data = f'id={id_job}'
+				nhan = nhanxu(cookie_ttc,loai,data).json()
+				xu_1 = xu_tt(cookie_ttc) 
+				try :
+					a = nhan["error"]
+					print (f" ERROR=> {id_job} ",end="\r")
+				except :
+					gio = datetime.now().strftime("%H:%M:%S")
+					tt += 1
+					print (f'\033[1;37m| {tt} | {gio} | Follow | {id_job} | +600 | {xu_1} Xu ' )
+					for i in range(dl,-1,-1):
+						print(f'[{i}] [DELAY]',end='\r')
+						sleep(1)
+			
+	elif loai == "/thamgianhomcheo/" :
+		list_job = get_job(loai,cookie_ttc)
+		b = list_job.text
+		a = list_job.json()
+		if b == "[]" :
+			print(" Hết Job Cảm Xúc ",end="\r")
+		else :
+			for list_job_ in a :
+				id_job = list_job_["idpost"]
+				lam = fb.join(id_job)
+				data = f"id={id_job}"
+				nhan = nhanxu(cookie_ttc,loai,data)
+				nhan_2 = nhan.json()
+				xu_1 = xu_tt(cookie_ttc) 
+				
+				try :
+					a = nhan_2["error"]
+					print (f'{id_job} => {GROUP} | ERRO ',end="\r")
+				except :
+					tt += 1
+					gio = datetime.now().strftime("%H:%M:%S")
+					print (f'\033[1;37m| {tt} | {gio} | GROUP | {id_job} | +1200 | {xu_1} Xu ' )
+					for i in range(dl,-1,-1):
+						print(f'[{i}] [DELAY]',end='\r')
+						sleep(1)
+	elif loai == "/camxuccheo/" :
+		list_job = get_job(loai,cookie_ttc)
+		b = list_job.text
+		a = list_job.json()
+		if b == "[]" :
+			print(" Hết Job Cảm Xúc ",end="\r")
+		else :
+			for list_job_ in a :
+				id_job = list_job_["idpost"]
+				
+				type_1 = list_job_["loaicx"]
+				type_2 = type_cx(type_1) 
+				lam = fb.reaction(id_job, type_2)
+				data = f"id={id_job}&loaicx={type_1}"
+				nhan = nhanxu(cookie_ttc,loai,data)
+				nhan_2 = nhan.json()
+				xu_1 = xu_tt(cookie_ttc) 
+				
+				try :
+					a = nhan_2["error"]
+					print (f'{id_job} => {type_1} | ERRO ',end="\r")
+				except :
+					tt += 1
+					gio = datetime.now().strftime("%H:%M:%S")
+					print (f'\033[1;37m| {tt} | {gio} | {type_1} | {id_job} | +400 | {xu_1} Xu ' )
+					for i in range(dl,-1,-1):
+						print(f'\033[1;37m[{i}] [DELAY]',end='\r')
+						sleep(0)
+			
