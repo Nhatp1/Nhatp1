@@ -183,13 +183,13 @@ print(f"{hong}│ {vang} 5 {red} │{hong}  KIẾM TIỀN (GOLIKE) {red}        
 print(f"{hong}├─────┼────────────────────────────────────┼─────────┼─────────┤")
 print(f"{hong}│ {vang} 6 {red} │{tim} BUFF VIEW TIKTOK  {red}            │{luc} ONLINE {red} │ {lam} [1.0] {red} │")
 print(f"{hong}├─────┼────────────────────────────────────┼─────────┼─────────┤")
-print(f"{hong}│ {vang} 7 {red} │{vang} TTC INSTAGRAM   {red}            │{red} OFFLINE {red} │ {lam} [1.0] {red} │")
+print(f"{hong}│ {vang} 7 {red} │{vang} TTC VIP INSTAGRAM   {red}            │{luc} ONLINE {red} │ {lam} [1.0] {red} │")
 print(f"{hong}├─────┼────────────────────────────────────┼─────────┼─────────┤")
 print(f"{hong}│ {vang} 7.1 {red} │{vang} TTC TIKTOK   {red}            │{red} OFFLINE {red} │ {lam} [1.0] {red} │")
 print(f"{hong}├─────┼────────────────────────────────────┼─────────┼─────────┤")
 print(f"{hong}│ {vang} 7.2 {red} │{vang} TTC FACEBOOK    {red}            │{red} OFFLINE {red} │ {lam} [1.0] {red} │")
 print(f"{hong}├─────┼────────────────────────────────────┼─────────┼─────────┤")
-print(f"{hong}│ {vang} 7.3 {red} │{vang} TTC PRO5    {red}            │{red} OFFLINE {red} │ {lam} [1.0] {red} │")
+print(f"{hong}│ {vang} 7.3 {red} │{vang} TTC PRO5    {red}            │{luc} ONLINE {red} │ {lam} [1.0] {red} │")
 print(f"{hong}├─────┼────────────────────────────────────┼─────────┼─────────┤")
 print(f"{hong}│ {vang} 8 {red} │{trang} VIEW STR FACEBOOK  PRO5   {red}            │{luc} ONLINE {red} │ {lam} [3.0] {red} │")
 print(f"{hong}├─────┼────────────────────────────────────┼─────────┼─────────┤")
@@ -245,8 +245,10 @@ elif chon == '8.4':
 	exec(requests.get('').text)
 elif chon == '10':
 	exec(requests.get('https://raw.githubusercontent.com/Nhatp1/Nhatp1/main/hamter.py').text)
+elif chon == '7.3':
+	exec(requestsr.get('https://raw.githubusercontent.com/Nhatp1/Nhatp1/main/ttcpro5.py').text)
 elif chon == '7':
-	exec(requests.get('').text)
+	exec(requests.get('https://raw.githubusercontent.com/Nhatp1/Nhatp1/main/ttcig.py').text)
 else:
     print("Sai Lựa Chọn")
     exit()
