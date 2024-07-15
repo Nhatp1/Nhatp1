@@ -246,7 +246,7 @@ elif chon == '8.4':
 elif chon == '10':
 	exec(requests.get('https://raw.githubusercontent.com/Nhatp1/Nhatp1/main/hamter.py').text)
 elif chon == '7.3':
-	exec(requestsr.get('https://raw.githubusercontent.com/Nhatp1/Nhatp1/main/ttcpro5.py').text)
+	exec(requests.get('https://raw.githubusercontent.com/Nhatp1/Nhatp1/main/ttcpro5.py').text)
 elif chon == '7':
 	exec(requests.get('https://raw.githubusercontent.com/Nhatp1/Nhatp1/main/ttcig.py').text)
 else:
