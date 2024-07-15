@@ -1,100 +1,160 @@
-import sys
 import os
-os.system('clear')
-import requests
-import threading
+import sys
+import aiohttp
+import asyncio
+import datetime
 import time
-import json,requests,time
-from time import strftime
-from pystyle import Colorate, Colors, Write, Add, Center
-__NHV__ = '\033[1;91m[\033[1;92m●\033[1;91m]\033[1;97m ➻❥'  
-def banner():
-    print(f''' 
 
-\033[1;31m────────────────────────────────────────────────────────────
-\033[1;31m[\033[1;37m=.=\033[1;31m] \033[1;37m=> \033[1;33mTOOL SHARE ẢO
-\033[1;31m[\033[1;37m=.=\033[1;31m] \033[1;37m=> \033[1;35mADMIN: \033[1;36m NHẬT TOOL
-\033[1;31m────────────────────────────────────────────────────────────''')
-t=(Colorate.Horizontal(Colors.white_to_black,"- - - - - - - - - - - - - - - - - - - - - - - - -"))
-print(t)
-def clear():
-    if(sys.platform.startswith('win')):
-        os.system('cls')
-    else:
-        os.system('clear')
-gome_token = []
-def get_token(input_file):
-    for cookie in input_file:
-        header_ = {
-            'authority': 'business.facebook.com',
-            'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+# Định nghĩa các mã màu
+xnhac = "\033[1;36m"
+do = "\033[1;31m"
+luc = "\033[1;32m"
+vang = "\033[1;33m"
+xduong = "\033[1;34m"
+hong = "\033[1;35m"
+trang = "\033[1;37m"
+whiteb = "\033[1;37m"
+red = "\033[0;31m"
+redb = "\033[1;31m"
+end = '\033[0m'
+
+# Đọc nội dung từ file vào list
+def read_lines_from_file(filename):
+    try:
+        with open(filename, 'r') as f:
+            lines = f.readlines()
+            return [line.strip() for line in lines if line.strip()]  # Loại bỏ các dòng trống và loại bỏ khoảng trắng
+    except FileNotFoundError:
+        print(f"{do}File {filename} không tồn tại.")
+        return []
+
+def banner():
+    os.system('cls' if os.name == 'nt' else 'clear')
+    ban = f'''{do}
+
+███████╗██╗  ██╗ █████╗ ██████╗ ███████╗               █████╗  ██████╗ 
+██╔════╝██║  ██║██╔══██╗██╔══██╗██╔════╝              ██╔══██╗██╔═══██╗
+███████╗███████║███████║██████╔╝█████╗      █████╗    ███████║██║   ██║
+╚════██║██╔══██║██╔══██║██╔══██╗██╔══╝      ╚════╝    ██╔══██║██║   ██║
+███████║██║  ██║██║  ██║██║  ██║███████╗              ██║  ██║╚██████╔╝
+╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝              ╚═╝  ╚═╝ ╚═════╝ 
+                                                                       
+
+{luc}</> Tool by NTOOL </>{luc}
+_____________________________________________________________________
+{trang}[{do}</>{trang}] {vang}TOOL SHARE ẢO PRO5 MAX SPEED 
+{trang}[{do}</>{trang}] {luc}ADMIN: {hong}NHATTOOL
+{trang}[{do}</>{trang}] {hong}BOT SPAM SMS: {do} https://t.me/sharebotvip
+_____________________________________________________________________
+'''
+    for i in ban:
+        sys.stdout.write(i)
+        sys.stdout.flush()
+        time.sleep(0.000012)
+
+success = []
+list_token = []
+
+# API Lấy ID từ traođổi sub
+async def getid(session, link):
+    async with session.post('https://id.traodoisub.com/api.php', data={"link": link}) as response:
+        rq = await response.json()
+        if 'success' in rq:
+            return rq["id"]
+        else:
+            exit(f"{do}Link post sai!!! Vui lòng nhập lại")
+
+# API Lấy danh sách token từ Facebook
+async def get_token(session, token, cookie):
+    params = {
+        'access_token': token
+    }
+    headers = {
+        'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+        'accept-language': 'vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5',
+        'cache-control': 'max-age=0',
+        'cookie': cookie,
+        'priority': 'u=0, i',
+        'sec-ch-ua': '"Google Chrome";v="125", "Chromium";v="125", "Not.A/Brand";v="24"',
+        'sec-ch-ua-mobile': '?0',
+        'sec-ch-ua-platform': '"Windows"',
+        'sec-fetch-dest': 'document',
+        'sec-fetch-mode': 'navigate',
+        'sec-fetch-site': 'none',
+        'sec-fetch-user': '?1',
+        'upgrade-insecure-requests': '1',
+        'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36'
+    }
+    async with session.get('https://graph.facebook.com/me/accounts', params=params, headers=headers) as r:
+        rq = await r.json()
+        if 'data' in rq:
+            return rq
+        else:
+            exit("Token Hoặc Cookie Sai! Vui lòng nhập lại")
+
+# API chính - Share Facebook
+async def shareao(session, tk, ck, post):
+    while True:
+        now = datetime.datetime.now()
+        current_time = now.strftime("%H:%M:%S")
+        headers = {
+            'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
             'accept-language': 'vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5',
             'cache-control': 'max-age=0',
-            'cookie': cookie,
-            'referer': 'https://www.facebook.com/',
-            'sec-ch-ua': '".Not/A)Brand";v="99", "Google Chrome";v="103", "Chromium";v="103"',
+            'cookie': ck,
+            'priority': 'u=0, i',
+            'sec-ch-ua': '"Google Chrome";v="125", "Chromium";v="125", "Not.A/Brand";v="24"',
             'sec-ch-ua-mobile': '?0',
-            'sec-ch-ua-platform': '"Linux"',
+            'sec-ch-ua-platform': '"Windows"',
             'sec-fetch-dest': 'document',
             'sec-fetch-mode': 'navigate',
-            'sec-fetch-site': 'same-origin',
+            'sec-fetch-site': 'none',
             'sec-fetch-user': '?1',
             'upgrade-insecure-requests': '1',
-
+            'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36'
         }
-        try:
-            home_business = requests.get('https://business.facebook.com/content_management', headers=header_).text
-            token = home_business.split('EAAG')[1].split('","')[0]
-            cookie_token = f'{cookie}|EAAG{token}'
-            gome_token.append(cookie_token)
-        except:
-            pass
-    return gome_token
+        async with session.get(f'https://graph.facebook.com/me/feed?method=POST&link=https://m.facebook.com/{post}&published=0&access_token={tk}', headers=headers) as response:
+            json = await response.json()
+            if 'id' in json:
+                print(xduong,len(success),current_time,"|",json['id'],"| Success")
+                success.append(json['id'])
+            else:
+                print(do,len(success),current_time,": Failure")
+                break
 
-def share(tach, id_share):
-    cookie = tach.split('|')[0]
-    token = tach.split('|')[1]
-    he = {
-        'accept': '*/*',
-        'accept-encoding': 'gzip, deflate',
-        'connection': 'keep-alive',
-        'content-length': '0',
-        'cookie': cookie,
-        'host': 'graph.facebook.com'
-    }
-    try:
-        res = requests.post(f'https://graph.facebook.com/me/feed?link=https://m.facebook.com/{id_share}&published=0&access_token={token}', headers=he).json()
-    except:
-        pass
-    
-    
-def main_share():
-    clear()
+async def main(link, cookies_file, tokens_file):
     banner()
-    input_file = open(input("\033[1;31m[\033[1;37m=.=\033[1;31m] \033[1;37m=> \033[1m\033[38;5;51mNhập tên file chứa Cookies: \033[1;35m")).read().split('\n')
-    id_share = input("\033[1;31m[\033[1;37m=.=\033[1;31m] \033[1;37m=> \033[1m\033[38;5;51mNhập ID Cần Share: \033[1;35m")
-    delay = int(input("\033[1;31m[\033[1;37m=.=\033[1;31m] \033[1;37m=> \033[1m\033[38;5;51mNhập Delay Share: \033[1;35m"))
-    total_share = int(input("\033[1;31m[\033[1;37m=.=\033[1;31m] \033[1;37m=> \033[1m\033[38;5;51mBao Nhiêu Share Thì Dừng Tool: \033[1;35m"))
-    all = get_token(input_file)
-    total_live = len(all)
-    print(f'\033[1;31m────────────────────────────────────────────────────────────')
-    if total_live == 0:
-        sys.exit()
-    stt = 0
-    while True:
-        for tach in all:
-            stt = stt + 1
-            threa = threading.Thread(target=share, args=(tach, id_share))
-            threa.start()
-            print(f'\033[1;91m[\033[1;33m{stt}\033[1;91m]\033[1;31m ❥ \033[1;95mSHARE\033[1;31m ❥\033[1;36m THÀNH CÔNG\033[1;31m ❥ ID ❥\033[1;31m\033[1;93m {id_share} \033[1;31m❥ \n', end='\r')
-            time.sleep(delay)
-        if stt == total_share:
-            break
-    gome_token.clear()
-    input('\033[38;5;245m[\033[1;32mSUCCESS\033[38;5;245m] \033[1;32mĐã Share Thành Công | Nhấn [Enter] Để Chạy Lại \033[0m\033[0m')
-while True:
-    try:
-        main_share()
-    except KeyboardInterrupt:
-        print('\n\033[38;5;245m[\033[38;5;9m!\033[38;5;245m] \033[38;5;9mNhớ Đăng Ký Kênh An Orin Nhé^^\033[0m')
-        sys.exit()
+    async with aiohttp.ClientSession() as session:
+        post = await getid(session, link)
+        
+        # Đọc danh sách cookie từ file
+        cookies = read_lines_from_file(cookies_file)
+        if not cookies:
+            exit(f"{do}Mày thêm cookie chưa, hoặc die cookie rồi:))")
+        
+        # Đọc danh sách token từ file
+        tokens = read_lines_from_file(tokens_file)
+        if not tokens:
+            exit(f"{do}Mày thêm token chưa, hoặc die token rồi:))")
+        
+        # Lấy token từng tài khoản
+        total_tokens = 0
+        for token in tokens:
+            token_data = await get_token(session, token, cookies[0])  # Chỉ lấy cookie đầu tiên trong danh sách
+            if 'data' in token_data:
+                list_token.extend([t["access_token"] for t in token_data["data"]])
+                total_tokens += len(token_data["data"])
+                print(f"{luc}Token Tage: {vang}{len(token_data['data'])}")
+        
+        banner()
+        print(hong,f"Tổng Số Token: {vang}{total_tokens}")
+        await asyncio.gather(*[shareao(session, tk, cookies[0], post) for tk in list_token])  # Sử dụng cookie đầu tiên trong danh sách
+        print(luc,"Success Share:",len(success))
+
+# Chạy tool
+if __name__ == "__main__":
+    banner()
+    link = input(f"{luc}Link Post: {vang}")
+    cookies_file = input(f"{luc}File Cookie (Ví dụ: cookie.txt): {vang}")
+    tokens_file = input(f"{luc}File Token (Ví dụ: token.txt): {vang}")
+    asyncio.run(main(link, cookies_file, tokens_file))
