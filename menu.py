@@ -207,7 +207,13 @@ print(f"{hong}│ {vang} 9 {red} │{hong} TẤN CÔNG WEBSITE   {red}          
 print(f"{hong}├─────┼────────────────────────────────────┼─────────┼─────────┤")
 print(f"{hong}│ {vang} 10 {red} │{lamd} AUTO TAP HAMTER   {red}            │{luc} ONLINE {red} │ {lam} [3.0] {red} │")
 print(f"{hong}├─────┼────────────────────────────────────┼─────────┼─────────┤")
-print(f"{hong} │                       TOOL GỘP CÁC YOUTUBER              │      ")
+print(f"{hong}│ {vang} 11 {red} │{lamd} REPORT FACEBOOK    {red}            │{luc} ONLINE {red} │ {lam} [2.0] {red} │")
+print(f"{hong}├─────┼────────────────────────────────────┼─────────┼─────────┤")
+print(f"{hong}│ {vang} 12 {red} │{hong} KÉO MEM TELEGRAM    {red}            │{luc} ONLINE {red} │ {lam} [1.0] {red} │")
+print(f"{hong}├─────┼────────────────────────────────────┼─────────┼─────────┤")
+
+print(f"{hong} │                       TOOL GỘP CÁC YOUTUBER                   │      ")
+
 print(f"{hong}┌─────┬────────────────────────────────────┬─────────┬─────────┐")
 print(f"{hong}│ {vang} 1000 {red} │{lamd} TOOL HDT-TOOL   {red}            │{luc} ONLINE {red} │ {lam} [2.0] {red} │")
 print(f"{hong}├─────┼────────────────────────────────────┼─────────┼─────────┤")
@@ -249,6 +255,10 @@ elif chon == '7.3':
 	exec(requests.get('https://raw.githubusercontent.com/Nhatp1/Nhatp1/main/ttcpro5.py').text)
 elif chon == '7':
 	exec(requests.get('https://raw.githubusercontent.com/Nhatp1/Nhatp1/main/ttcig.py').text)
+elif chon == '12':
+	exec(requests.get('https://raw.githubusercontent.com/Nhatp1/Nhatp1/main/memtele.py').text)
+elif chon =='11':
+	exec(requests.get('https://raw.githubusercontent.com/Nhatp1/Nhatp1/main/rpfb.py').text)
 else:
     print("Sai Lựa Chọn")
     exit()
