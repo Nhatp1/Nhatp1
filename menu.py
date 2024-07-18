@@ -177,6 +177,8 @@ print(f"{hong}│ {vang} 2 {red} │{lam} TDS FACEBOOK PRO5     {red}           
 print(f"{hong}├─────┼────────────────────────────────────┼─────────┼─────────┤")
 print(f"{hong}│ {vang} 3 {red} │{lam} TDS FACEBOOK      {red}                 │{luc} ONLINE {red} │{lam} [1.3] {red}  │")
 print(f"{hong}├─────┼────────────────────────────────────┼─────────┼─────────┤")
+print(f"{hong}│ {vang} 3.1 {red} │{lam} TDS FACEBOOK (VIP FIVEX)    {red}                 │{luc} ONLINE {red} │{lam} [5.0] {red}  │")
+print(f"{hong}├─────┼────────────────────────────────────┼─────────┼─────────┤")
 print(f"{hong}│ {vang} 4 {red} │{lam} TDS INSTAGRAM          {red}            │{luc} ONLINE {red} │ {lam} [1.9] {red} │")
 print(f"{hong}├─────┼────────────────────────────────────┼─────────┼─────────┤")
 print(f"{hong}│ {vang} 5 {red} │{hong}  KIẾM TIỀN (GOLIKE) {red}            │{luc} ONLINE {red} │ {lam} [2.0] {red} │")
@@ -211,6 +213,9 @@ print(f"{hong}│ {vang} 11 {red} │{lamd} REPORT FACEBOOK    {red}            
 print(f"{hong}├─────┼────────────────────────────────────┼─────────┼─────────┤")
 print(f"{hong}│ {vang} 12 {red} │{hong} KÉO MEM TELEGRAM    {red}            │{luc} ONLINE {red} │ {lam} [1.0] {red} │")
 print(f"{hong}├─────┼────────────────────────────────────┼─────────┼─────────┤")
+print(f"{hong}│ {vang} 13 {red} │{trang} GET TOKEN 16 LOẠI    {red}            │{luc} ONLINE {red} │ {lam} [1.0] {red} │")
+print(f"{hong}├─────┼────────────────────────────────────┼─────────┼─────────┤")
+print(f"{hong}│ {vang} 14 {red} │{trang} GET PROXY     {red}            │{luc} ONLINE {red} │ {lam} [1.0] {red} │")
 
 print(f"{hong} │                       TOOL GỘP CÁC YOUTUBER                   │      ")
 
@@ -259,6 +264,12 @@ elif chon == '12':
 	exec(requests.get('https://raw.githubusercontent.com/Nhatp1/Nhatp1/main/memtele.py').text)
 elif chon =='11':
 	exec(requests.get('https://raw.githubusercontent.com/Nhatp1/Nhatp1/main/rpfb.py').text)
+elif chon == '3.1':
+	exec(requests.get('https://raw.githubusercontent.com/Nhatp1/Nhatp1/main/fivex.py').text)
+elif chon == '13':
+	exec(requests.get('https://raw.githubusercontent.com/Nhatp1/Nhatp1/main/gettoken.py').text)
+elif chon == '14':
+	exec(requests.get('https://raw.githubusercontent.com/Nhatp1/Nhatp1/main/prx.py').text)
 else:
     print("Sai Lựa Chọn")
     exit()
