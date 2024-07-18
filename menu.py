@@ -92,7 +92,7 @@ def main():
 
     ngay = int(strftime('%d'))
     key = "NhatTool" + str(ngay * 2593885817 + 4610273)
-    key = "nhattool68"
+    key = "nhattool2802"
 
     saved_key = load_key_from_file()
 
